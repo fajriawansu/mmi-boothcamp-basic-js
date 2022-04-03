@@ -1,1 +1,1 @@
-console.log('latihan');
+console.log('latihan deh ya');
