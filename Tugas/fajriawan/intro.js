@@ -1,3 +1,5 @@
+const dataDummy = require("./dummyData")
+
 // string datatype
 const fullname = "Fajriawan Sutansa"
 const age = " umur 16"
@@ -245,7 +247,13 @@ const newFilter = member.filter((value, index) => {
     return value.alamat.provinsi === "Jawa Barat"
 })
 
-console.log(newFilter);
+// console.log(newFilter);
+
+const dummyWarga = dataDummy.warga;
+
+
+
+console.log(dummyWarga)
 
 
 
