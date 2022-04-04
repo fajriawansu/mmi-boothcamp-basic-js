@@ -14,6 +14,7 @@ const concatNameAge = fullname.concat(age, " tinggal di Jakarta");
 const arrayFullname = fullname.split(" "); // tergantung dari split parameternya apa
 
 const startFullname = fullname.startsWith("Hanif");
+const endFullname = fullname.endsWith("Putera")
 const includeFullname = fullname.includes("Dwitama");
 
-console.log(includeFullname);
+console.log(endFullname);
