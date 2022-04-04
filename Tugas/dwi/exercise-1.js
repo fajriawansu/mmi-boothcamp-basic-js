@@ -209,8 +209,8 @@ console.log(dataDummy.warga.sort(myWargaSortAsc));
 
 //12. urutkan berdasarkan umur, descending
 function myWargaSortDesc(a,b){
-    let before = a.nama;
-    let after = b.nama;
+    let before = a.umur;
+    let after = b.umur;
     if (before > after){return -1};
     if (after > before){return 1};
 }
