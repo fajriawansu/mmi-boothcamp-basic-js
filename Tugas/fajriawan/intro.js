@@ -210,7 +210,43 @@ function mySort(a,b){
     return parseInt(a.id) - b.id
 }
 
-console.log(sortMember3());
+function myStringSort(a,b){
+    let before = a.alamat["kota"];
+    let after = b.alamat["kota"];
+    if (before < after){return -1};
+    if (after < before){return 1};
+}
+
+// console.log(member.sort(myStringSort));
+
+// console.log(member.forEach((v, idx) => {
+//     console.log({
+//         value: v,
+//         index: idx
+//     })
+// }));
+
+// function learnForEach(value, index, arr){
+//     console.log({
+//         value: value,
+//         index
+//     })
+// }
+
+// mapping array
+
+const newMapping = member.map((value, index) => {
+    return {
+        fullname: value.nama_depan + " " + value.nama_belakang
+    }
+})
+
+const newFilter = member.filter((value, index) => {
+    return value.alamat.provinsi === "Jawa Barat"
+})
+
+console.log(newFilter);
+
 
 
 
