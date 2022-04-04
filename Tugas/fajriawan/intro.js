@@ -106,4 +106,111 @@ const copyBiodata = {
     nama_belakang: "Sutansaaaaaa",
     lahir: "Depok"
  }
-console.log(copyBiodata);
+// console.log(copyBiodata);
+
+// belajar array
+
+// array cuma bisa diakses 1 cara, yaitu bracket notation
+// console.log(member[1].nama_depan);
+
+// const copyOfMember = [
+//     ...member,
+//     {
+//         nama_depan: "Putri",
+//         nama_belakang: "Rahayu",
+//         phone_number: "121212",
+//         alamat: {
+//             "kota": "Jakarta",
+//             "provinsi": "DKI Jakarta"
+//         }
+//     }
+// ]
+// console.log(copyOfMember);
+
+const hewan = ["Ayam", "Gurita", "Sapi", "Ikan"];
+// console.log(hewan.toString(), typeof(hewan.toString())) 
+// console.log(hewan.join(" # "), typeof(hewan.join(" # "))) 
+
+const tempHewan = [... hewan];
+// tempHewan.pop();
+// tempHewan.shift();
+// tempHewan.push("Tikus");
+// tempHewan.unshift("Tikus");
+// console.log(tempHewan, 'length dari array temphewan adalah =', tempHewan.length);
+
+const warga1 = ['asep', 'rudi', 'imam'];
+const warga2 = ['dimas', 'aan'];
+
+// const warga = warga1.concat(warga2, "Dian");
+// const potonganWarga = warga1.splice(0, 1);
+// const sliceWarga = warga1.slice(0,1);
+// console.log(warga1, potonganWarga);
+
+const sortHewan = hewan.sort();
+const reverseSortHewan = hewan.reverse();
+// console.log(reverseSortHewan);
+
+
+const member = [
+    {
+        id: 1,
+        nama_depan: "Fajriawan",
+        nama_belakang: "Sutansa",
+        phone_number: "1213131",
+        alamat: {
+            "kota": "Depok",
+            "provinsi": "Jawa Barat"
+        }
+    },
+    {
+        id: 33,
+        nama_depan: "Dimas",
+        nama_belakang: "Syaputra",
+        phone_number: "11111",
+        alamat: {
+            "kota": "Bogor",
+            "provinsi": "Jawa Barat"
+        }
+    },
+    {
+        id: 22,
+        nama_depan: "Yusuf",
+        nama_belakang: "Fadila",
+        phone_number: "2222",
+        alamat: {
+            "kota": "Semarang",
+            "provinsi": "Jawa Tengah"
+        }
+    },
+    
+];
+
+// sort array with nested object
+function sortMember(){
+    return member.sort(mySort);
+}
+
+// sort langsung di dalam (ES5)
+function sortMember2(){
+    return member.sort(function(a,b){
+        return parseInt(a.id) - b.id
+    });
+}
+
+// sort langsung di dalam (ES6)
+function sortMember3(){
+    return member.sort((a,b) => {
+        let before = a.id;
+        let after = b.id;
+        return before - after;
+    });
+}
+
+function mySort(a,b){
+    return parseInt(a.id) - b.id
+}
+
+console.log(sortMember3());
+
+
+
