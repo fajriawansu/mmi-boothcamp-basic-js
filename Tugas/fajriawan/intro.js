@@ -98,4 +98,12 @@ const extendedBiodata = {
 
 const myFullName = extendedBiodata.full_name();
 
-console.log(myFullName)
+// console.log(myFullName)
+
+// spread object
+const copyBiodata = { 
+    ...biodata,
+    nama_belakang: "Sutansaaaaaa",
+    lahir: "Depok"
+ }
+console.log(copyBiodata);
