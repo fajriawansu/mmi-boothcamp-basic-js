@@ -68,11 +68,9 @@ const kucingku = {
 
 //1. ubah nama jadi "Si Oren"
 
-const kucingkuBaru = {
-    ... kucingku,
-    "nama" : "Si Oren"
-}
+kucingku.nama = "Si Oren";
 
+console.log(kucingku);
 
 //2. buat object baru, berisi data "kucingku" dan 2 properties baru
 const newKucing = {
