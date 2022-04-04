@@ -58,7 +58,12 @@ const biodata = {
         return this.nama_depan+" "+this.nama_belakang
     }
 }
-console.log(biodata.nama_lengkap()+", "+biodata.alamat.alamat_lengkap());
+const copyBiodata = {
+    ...biodata,
+    tanggal_lahir: "27-08-1999"
+}
+
+console.log(biodata.nama_lengkap()+", "+biodata.alamat.alamat_lengkap()+", "+copyBiodata.tanggal_lahir);
 
 const anggota = [
     {
@@ -92,5 +97,8 @@ console.log(anggota[0].hobi);
 console.log(anggota[0].hobi.length);
 console.log(anggota.length);
 const arr1 = [1,2,3]
-const arr2 = ["a", "b", "c"]
+const arr2 = ["a", "b", "c", "d"]
 console.log(arr1+" "+arr2);
+arr1.splice(1,1, 4,5,6,7); //splice("index start tambah data arr", "banyak data dihapus mulai dari start", ..."data-data yg ditambah")
+console.log(arr1);
+console.log(arr2.slice(1,3));
