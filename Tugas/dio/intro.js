@@ -34,7 +34,7 @@ console.log("2"*"abc");
 console.log(2/0);
 console.log(111e-5.toString());
 console.log(20.54.toFixed());
-//global method
+//global method for number
 console.log(Number("1.1"));
 console.log(parseInt("1.1"));
 console.log(parseFloat("1.555"));
