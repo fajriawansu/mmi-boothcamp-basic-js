@@ -169,9 +169,25 @@ function mySort(a,b){
 // (contoh: {data_lengkap: "Asep umur 18"})
 const dataLengkap = listWarga.map((value, index) => {
     return {
-        fullname: value.nama + " umur " + value.umur
+        fulldata: value.nama + " umur " + value.umur
     }
 })
+
+//14. buat array yang hanya menampilkan 'warga' di bawah umur 30
+const filterUmur = listWarga.filter((value, index) => {
+    return value.umur < 30;
+})
+
+//15. buat function contoh myFunction(num1) yang berisi arguments umur
+// jika myFunction(32) akan mereturn array ["Budi"]
+// jika myFunction(23) akan mereturn array ["Dindin", "Raisa
+function search(umurBanding){
+    //let umurBanding = 23;
+    let searchUmur = listWarga.filter((value, index) => {
+        return value.umur === umurBanding;
+     })
+     return searchUmur;
+} 
 
 //Panggil
 console.log("---String---");
@@ -241,3 +257,7 @@ console.log(listWarga.sort(myStringSort));
 console.log(sortMember());
 //13
 console.log(dataLengkap);
+//14
+console.log(filterUmur);
+//15
+console.log(search(23));
