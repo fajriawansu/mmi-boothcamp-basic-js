@@ -19,5 +19,5 @@ const greatMovies = dummyData.greatMovies
 // object berisi 3 properties yang menyimpan nama film, rating, dan tahun
 
 //5. buat function dengan 1 parameters contoh myFunction(directorName), mereturn film-film yang didirect
-// oleh director tersebut
+// oleh director tersebut dalam bentuk array yang tiap-tiap elemennya hanya string nama film tersebut
 //contoh: jika myFunction("Raditya Dika") akan memiliki return ["Hangout", "Kambing Jantan", "The Boys"]
