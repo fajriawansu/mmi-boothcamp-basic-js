@@ -32,7 +32,7 @@ let objek = {film_tahun_itu : tahunIni,
 return objek;
 }
 
-console.log(cariFilm(2001));
+console.log(cariFilm(2010));
 
 
 
@@ -117,4 +117,52 @@ function soal5(directorName){
 return kumpulFilm;
 }
 
-console.log(soal5("James Cameron"))
+console.log(soal5("Steven Spielberg"))
+
+
+// intermediate++ Scripting
+//1. buat function tanpa parameters contoh myFunction(), dimana mereturn jumlah film berdasarkan genre
+// return dalam bentuk object contoh sbb {Action: 3, Drama: 2, Crime: 1, Thriller: 4}
+//notes: banyaknya properties object bergantung pada banyaknya jenis genre yang ada
+
+function jumlahGenre(){
+    let tempArr = [...greatMovies];
+    let sementara= [];
+    let last = [];
+    let hitungan = [];
+    for (let i = 0; i < tempArr.length; i++) {
+        for (let j = 0; j < tempArr[i].genre.length; j++) { 
+            sementara.push(tempArr[i].genre[j]);
+        }   
+    }
+
+    
+
+    let output = {};
+    let indexNew = -1;
+    for(let i = 0; i < sementara.sort().length; i++){
+
+        if(!last.includes(sementara.sort()[i])){
+            last.push(sementara.sort()[i]);
+            hitungan.push(1);  
+            indexNew = indexNew + 1; 
+        }else{
+            
+            hitungan[indexNew] = hitungan[indexNew] + 1;
+        }
+
+    }
+    for (let i = 0; i < last.length; i++) {
+        output[last[i]] = hitungan[i];
+        
+    }
+
+    
+  
+    
+
+
+    return output;
+}
+
+console.log(jumlahGenre());
