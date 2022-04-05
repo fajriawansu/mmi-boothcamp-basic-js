@@ -166,3 +166,29 @@ function reduceOrSumFunction(total, value, index, array){
 
 console.log(belajarSort.findIndex((v)=> v.nama =="Dio"))
 console.log(belajarSort.find((v)=> v.nama =="Har"))
+
+//Operators and Math
+const x = 12.34
+
+console.log(Math.round(x))//pembulatan terdekat
+console.log(Math.ceil(x))//pembulatan atas
+console.log(Math.floor(x))//pembulatan bawah
+console.log(Math.trunc(x))//return 12
+console.log(Math.sign(x))//return negatif null positif
+console.log(Math.pow(2,4))//pangkat (nilai, pangkat)
+console.log(Math.sqrt(144))//akar kuadrat
+console.log(Math.trunc(-x))//nilai mutlak
+console.log(Math.random())//random 0-1
+
+//condition
+
+//ternary condition (condition)? valueIfTrue:valueIfFalse
+console.log((x<12)? ((x<10)? ((x<5)? true:"lebih dari 5"):"lebih dari 10") :"lebih dari 12")
+
+//loop
+for(bel in belajarSort[0]){
+    console.log(bel)
+}
+for(f in belajarSort){
+    console.log(belajarSort[f].nama)
+}

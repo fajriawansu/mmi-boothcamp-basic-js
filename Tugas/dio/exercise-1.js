@@ -167,3 +167,16 @@ function myFunction(num){
 console.log(myFunction(32))
 // jika myFunction(23) akan mereturn array ["Dindin", "Raisa"]
 console.log(myFunction(23))
+//15. buat method .some() dengan array "warga" yang memiliki return "true"
+console.log(warga.some((value)=> value.nama == "Eli"))
+//16. buat method .some() dengan array "warga" yang memiliki return "false"
+console.log(warga.some((value)=> value.umur==99))
+//17. buat method .every() dengan array "warga" yang memiliki return "true"
+console.log(warga.every((value)=> value.umur<99))
+//18. buat array "umurWarga" yang hanya menyimppan umur warga saja (tiap element adalah datatype number)
+const umurWarga = warga.map((value)=> value.umur)
+console.log(umurWarga)
+//19. total umur warga dari array 18 dengan metode .reduce()
+console.log(umurWarga.reduce((total,value) => total+value))
+//20. dari array "warga", buat suatu variabel berisi array method yang mereturn object berisi warga bernama "Dimas"
+console.log(warga.find((value)=> value.nama == "Dimas"))
