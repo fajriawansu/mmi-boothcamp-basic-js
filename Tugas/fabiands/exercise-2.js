@@ -44,7 +44,7 @@ console.log(ganjilGenap());
 
 //4. buat function yang mereturn array dengan urut dari bilangan terkecil ke besar
 function sortAscend(){
-    let theNumberTemp = theNumber;
+    const theNumberTemp = [...theNumber];
     theNumberTemp.sort(function(a, b){
         return a - b
     });
