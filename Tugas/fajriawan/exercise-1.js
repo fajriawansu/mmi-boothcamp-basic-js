@@ -71,3 +71,10 @@ const arr3 = ["Robin", "Morgan"];
 //12. urutkan berdasarkan umur, descending
 //13. ubah mapping data, dimana object pada tiap element array hanya memiliki properties "data_lengkap" berisi string gabungan nama dan umur
 // (contoh: {data_lengkap: "Asep umur 18"})
+
+//selasa nih
+
+//14. buat array yang hanya menampilkan 'warga' di bawah umur 30
+//15. buat function contoh myFunction(num1) yang berisi arguments umur
+// jika myFunction(32) akan mereturn array ["Budi"]
+// jika myFunction(23) akan mereturn array ["Dindin", "Raisa
