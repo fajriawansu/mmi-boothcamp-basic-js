@@ -300,4 +300,4 @@ console.log(arrayUmur, typeof(arrayUmur[0]));
 //20
 console.log(reduceUmur);
 //21
-console.log(cariNama)
+console.log(cariNama);
