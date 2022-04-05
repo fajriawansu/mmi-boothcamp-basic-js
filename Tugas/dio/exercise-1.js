@@ -157,3 +157,13 @@ console.log(warga.sort(function(a,b){return b.umur - a.umur}))
 //13. ubah mapping data, dimana object pada tiap element array hanya memiliki properties "data_lengkap" berisi string gabungan nama dan umur
 console.log(warga.map((value)=> { return {data_lengkap: value.nama+" Umur "+value.umur}}))
 // (contoh: {data_lengkap: "Asep umur 18"})
+//14. buat array yang hanya menampilkan 'warga' di bawah umur 30
+console.log(warga.filter((value)=> value.umur<30))
+//15. buat function contoh myFunction(num1) yang berisi arguments umur
+function myFunction(num){
+    return warga.filter((value)=> value.umur==num).map((value)=> value.nama)
+}
+// jika myFunction(32) akan mereturn array ["Budi"]
+console.log(myFunction(32))
+// jika myFunction(23) akan mereturn array ["Dindin", "Raisa"]
+console.log(myFunction(23))
