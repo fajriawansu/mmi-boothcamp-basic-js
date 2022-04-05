@@ -98,7 +98,83 @@ const alamatLengkap = biodata.alamat.alamat_lengkap();
 const alamatKota = biodata.alamat.kota;
 const namaLengkap = biodata.nama_lengkap();
 
+// datatype array
+const dataDummy = require("./../fajriawan/dummyData");
+const selai = ["cokelat", "stroberi", "alpukat"];
+//1. Buat array baru "myArray" yang berisi string dan number (termasuk array selai)
+const arraySelai = ["Kelapa", "123", "Jeruk"]
+const arrayGabungan = arraySelai.concat(selai);
+
+//2. Buat nested array dengan nama "nestedArray"
+const nestedArray = [[1,"Jeruk"],[2,"Kelapa"],[3,"Alpukat"]];
+
+//3. buat variabel bernama "myDataNum" yang bernilai sama dengan array selai index 0  (gunakan bracket notation)
+const myDataNum = selai[0];
+
+const arrayNum = [11,12,45,24,32,100]
+//4. ubah data index 3 menjadi 44
+arrayNum[2] = 44;
+
+const multiArray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [[10, 11, 12], 13, 14]
+  ]; //ini disebut multi dimensional array
+//5. buat variabel bernama "myDataMultiArray" yang bernilai sama dengan 12 (gunakan bracket notation)
+const myDataMultiArray = multiArray[3][0][2];
+
+const hewan = ["ayam", "bebek", "rusa", "tikus"]; // jadi ["babi", "bebek", "rusa", "kambing", "dinosaurus"]
+//6. dengan methode push, pop, shift, unshift ubah array hewan jadi seperti di sebelahnya
+hewan.pop();
+hewan.shift();
+hewan.push("kambing");
+hewan.push("dinosaurus");
+hewan.unshift("babi");
+
+//7. ubah hewan jadi string yang dipisah koma
+const komaHewan = hewan.toString();
+
+//8. ubah hewan jadi string yang dipisah pagar (#)
+const pagarHewan = hewan.join("#");
+
+const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+//9. buat variabel "arr123", dengan data berupa gabungan 3 array di atas
+const arr123 = arr1 + arr2 + arr3;
+
+//10. buat variabel "arr4", merupakan copy-an "arr123" tetapi hanya index ke 1 sampai 4 saja
+arr4 = arr123.slice(0,3);
+
+// const warga = dataDummy.warga;
+//11. urutkan berdasarkan nama, ascending
+function myStringSort(a,b){
+    let before = a.nama;
+    let after = b.nama;
+    if(before <= after) {return -1;};
+    if(after > before) {return 1;};
+}
+const listWarga = dataDummy.warga;
+
+//12. urutkan berdasarkan umur, descending
+function sortMember(){
+    return listWarga.sort(mySort);
+}
+function mySort(a,b){
+    return b.umur - a.umur;
+}
+
+//13. ubah mapping data, dimana object pada tiap element array hanya memiliki properties "data_lengkap" berisi string gabungan nama dan umur
+// (contoh: {data_lengkap: "Asep umur 18"})
+const dataLengkap = listWarga.map((value, index) => {
+    return {
+        fullname: value.nama + " umur " + value.umur
+    }
+})
+
 //Panggil
+console.log("---String---");
 //Data Type String
 //1
 console.log(pisah(name));
@@ -115,12 +191,14 @@ console.log(checktrue(url2));
 console.log(checkfalse(url1));
 console.log(checkfalse(url2));
 
+console.log("---Number---");
 //Data Type Number
 //1
 console.log(angkaString, typeof(angkaString));
 //2
 console.log(bulat);
 
+console.log("---Object---");
 //Data Type Object
 //1
 console.log(kucingku);
@@ -134,3 +212,32 @@ console.log(namaBelakang);
 console.log(alamatLengkap);
 console.log(namaLengkap);
 console.log(alamatKota);
+
+//Data Type Array
+console.log("---Array---");
+//1
+console.log(arrayGabungan);
+//2
+console.log(nestedArray);
+//3
+console.log(myDataNum);
+//4
+console.log(arrayNum);
+//5
+console.log(myDataMultiArray);
+//6
+console.log(hewan);
+//7
+console.log(komaHewan);
+//8
+console.log(pagarHewan);
+//9
+console.log(arr123);
+//10
+console.log(arr4);
+//11
+console.log(listWarga.sort(myStringSort));
+//12
+console.log(sortMember());
+//13
+console.log(dataLengkap);

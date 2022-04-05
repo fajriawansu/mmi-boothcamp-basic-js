@@ -84,19 +84,19 @@ console.log(typeof(biodata)+" "+typeof(anggota));
 console.log(Array.isArray(biodata)+" "+Array.isArray(anggota));
 console.log(anggota[0].nama+" "+anggota[0].jurusan+" "+anggota[0].alamat.alamat_lengkap()+" "+anggota[0].hobi);
 console.log(anggota[0].hobi);
-console.log(anggota[0].hobi.toString());
-console.log(anggota[0].hobi.join(";"));
+console.log(anggota[0].hobi.toString());//jadi string
+console.log(anggota[0].hobi.join(";"));//jadi stiring tp gabung pake ;
 
-anggota[0].hobi.push("Listen");
+anggota[0].hobi.push("Listen"); //tambah di elemen terakhir
 console.log(anggota[0].hobi);
 
-anggota[0].hobi.pop();
+anggota[0].hobi.pop(); //hapus elemen terakir
 console.log(anggota[0].hobi);
 
-anggota[0].hobi.shift();
+anggota[0].hobi.shift();//hapus elemen pertama
 console.log(anggota[0].hobi);
 
-anggota[0].hobi.unshift("Play")
+anggota[0].hobi.unshift("Play")//tambah elemen pertama
 console.log(anggota[0].hobi);
 
 console.log(anggota[0].hobi.length);
@@ -107,16 +107,16 @@ const arr2 = ["a", "b", "c", "d"]
 console.log(arr1+" "+arr2);
 arr1.splice(1,1, 4,5,6,7); //splice("index start tambah data arr", "banyak data dihapus mulai dari start", ..."data-data yg ditambah")
 console.log(arr1);
-console.log(arr2.slice(1,3));
+console.log(arr2.slice(1,3));//tampil dari index 1 sampai 3-1
 
 console.log(arr1.sort()+" "+arr2.sort())
 console.log(arr1.reverse()+" "+arr2.reverse())
 
-console.log(arr1.sort(function(a,b){return a-b}))
-console.log(arr1.sort(function(a,b){return b-a}))
+console.log(arr1.sort(function(a,b){return a-b}))//sort peke function (hanya bisa number)
+console.log(arr1.sort(function(a,b){return b-a}))//sama
 
-console.log(Math.max(1,22,3,4,5))
-console.log(Math.max.apply(null, [1,22,3,4,5]))
+console.log(Math.max(1,22,3,4,5))//nilai max
+console.log(Math.max.apply(null, [1,22,3,4,5]))//nilai max pada array
 
 const belajarSort = [
     {nama: "Dio", umur: 21},
@@ -125,8 +125,8 @@ const belajarSort = [
     {nama: "Vandy", umur: 23}
 ]
 
-console.log(belajarSort.sort(function(a,b){return a.umur - b.umur}))
-belajarSort.sort(function a(a,b){
+console.log(belajarSort.sort(function(a,b){return a.umur - b.umur}))//sort berdasarkan umur(karena number)
+belajarSort.sort(function a(a,b){ //sort berdasarkan nama (karena string)
     let x = a.nama.toLocaleLowerCase();
     let y = b.nama.toLocaleLowerCase();
     if(x<y){return -1 };
@@ -135,6 +135,7 @@ belajarSort.sort(function a(a,b){
 })
 console.log(belajarSort)
 
+//iteration
 belajarSort.forEach(iterationFunction)
 function iterationFunction(value, index, array){
     return console.log(`nama orang ke-${index+1} adalah ${value.nama}`)

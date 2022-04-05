@@ -75,3 +75,85 @@ const biodata = {
 //4. buat variabel yang mereturn nama depan, nama belakang, alamat lengkap, alamat (kota saja), nama lengkap
 const stringBiodata = biodata.nama_depan+", "+biodata.nama_belakang+", "+biodata.alamat.alamat_lengkap()+", "+biodata.alamat.kota+", "+biodata.nama_lengkap();
 console.log(stringBiodata);
+
+// datatype array
+const dataDummy = require("./../fajriawan/dummyData")
+const selai = ["cokelat", "stroberi", "alpukat"];
+//1. Buat array baru "myArray" yang berisi string dan number (termasuk array selai)
+const myArray = [
+    ...selai,
+    1,2,3,"a","b","c","d"
+]
+console.log(myArray)
+//2. Buat nested array dengan nama "nestedArray"
+const nestedArray = [
+    "karnivora", "herbivora","omnivora", ["amfibi", "mamalia", "burung"]
+]
+console.log(nestedArray)
+
+const arrayNum = [11,12,45,24,32,100]
+console.log(arrayNum)
+//3. buat variabel bernama "myDataNum" yang bernilai sama dengan array selai index 0  (gunakan bracket notation)
+let myDataNum = [];
+arrayNum.shift();
+for(let a = 0; a<arrayNum.length; a++){
+    myDataNum.push(arrayNum[a])
+}
+console.log(myDataNum)
+//4. ubah data index 3 menjadi 44
+arrayNum[3] = 44;
+console.log(arrayNum)
+
+const multiArray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [[10, 11, 12], 13, 14]
+  ]; //ini disebut multi dimensional array
+//5. buat variabel bernama "myDataMultiArray" yang bernilai sama dengan 12 (gunakan bracket notation)
+const myDataMultiArray = multiArray[3][0][2];
+console.log(myDataMultiArray)
+
+const hewan = ["ayam", "bebek", "rusa", "tikus"]; // jadi ["babi", "bebek", "rusa", "kambing", "dinosaurus"]
+//6. dengan methode push, pop, shift, unshift ubah array hewan jadi seperti di sebelahnya
+hewan.shift()
+hewan.unshift("babi")
+hewan.pop()
+hewan.push("kambing")
+hewan.push("dinosaurus")
+console.log(hewan)
+//7. ubah hewan jadi string yang dipisah koma
+console.log(hewan.toString())
+//8. ubah hewan jadi string yang dipisah pagar (#)
+console.log(hewan.join("#"))
+
+const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+//9. buat variabel "arr123", dengan data berupa gabungan 3 array di atas
+const arr123 = [
+    ...arr1,
+    ...arr2,
+    ...arr3
+]
+console.log(arr123)
+//10. buat variabel "arr4", merupakan copy-an "arr123" tetapi hanya index ke 1 sampai 4 saja
+const arr4 = [
+    ...arr123.slice(1, 5)
+]
+console.log(arr4)
+const warga = dataDummy.warga;
+//11. urutkan berdasarkan nama, ascending
+warga.sort(function a(a,b){ 
+    let x = a.nama.toLocaleLowerCase();
+    let y = b.nama.toLocaleLowerCase();
+    if(x<y){return -1 };
+    if(x>y){return 1 };
+    return 0;
+})
+console.log(warga)
+//12. urutkan berdasarkan umur, descending
+console.log(warga.sort(function(a,b){return b.umur - a.umur}))
+//13. ubah mapping data, dimana object pada tiap element array hanya memiliki properties "data_lengkap" berisi string gabungan nama dan umur
+console.log(warga.map((value)=> { return {data_lengkap: value.nama+" Umur "+value.umur}}))
+// (contoh: {data_lengkap: "Asep umur 18"})
