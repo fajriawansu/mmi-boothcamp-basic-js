@@ -185,7 +185,10 @@ function search(umurBanding){
     let searchUmur = listWarga.filter((value, index) => {
         return value.umur === umurBanding;
      })
-     return searchUmur;
+     const searchNama = searchUmur.map((value, index) => {
+         return value.nama;
+     })
+     return searchNama;
 } 
 
 //Panggil
