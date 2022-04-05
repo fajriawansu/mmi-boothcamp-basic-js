@@ -22,8 +22,43 @@ function learnLogical(arg1, arg2, arg3){
     const truncNum = Math.trunc(arg1);
     const powNum = Math.pow(arg1, arg2);
 
-    return truncNum
+    const learnMax = Math.max(arg1,arg2,arg3)
+
+    return learnMax
 }
 
-console.log(learnLogical(12.00000001))
+function learnIfElse(arg1, arg2){
+    let x = 1;
+
+    if(arg1 == arg2 && typeof(arg1) === "number" && typeof(arg2) === "number" ){
+        x = 10
+    } else if(arg1 == arg2){
+        x = 12
+    } else {
+        x = 14
+    }
+
+    return x
+}
+
+// console.log(learnIfElse("4", 4))
+
+function learnSwitch(arg1,arg2){
+    let x = "";
+    switch(arg1 + arg2) {
+        case 18:
+            x = "Benar";
+            break;
+        default:
+            x = "Salah"
+    }
+    return x
+}
+
+function learnTernary(arg1,arg2){
+    return arg1 > arg2 ? "Arg1 > Arg2" : arg2 > arg1 ? "Arg2 > Arg1" :
+    arg1 === arg2 ? "Sama Persis" : "Gatau"
+}
+
+console.log(learnTernary(10,10))
 
