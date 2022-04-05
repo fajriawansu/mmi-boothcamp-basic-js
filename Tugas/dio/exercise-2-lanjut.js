@@ -10,17 +10,12 @@ const greatMovies = dummyData.greatMovies
 function myFunction(num){
     let filmTahunItu=0, filmTahunSebelumnya=0, filmTahunSetelahnya=0;
     const movies = [...greatMovies]
-    for(x in movies){
-        if(movies[x].year==num){
-            filmTahunItu++
-        }
-        else if(movies[x].year==num-1){
-            filmTahunSebelumnya++
-        }
-        else if (movies[x].year==num+1){
-            filmTahunSetelahnya++
-        }
-    }
+    movies.forEach((v)=>{
+        (v.year==num)?filmTahunItu++:
+        (v.year==num-1)?filmTahunSebelumnya++:
+        (v.year==num+1)?filmTahunSetelahnya++:
+        false
+    })
     return {"film_tahun_itu": filmTahunItu, 
             "film_tahun_sebelumnya": filmTahunSebelumnya,
             "film_tahun_setelahnya": filmTahunSetelahnya}
@@ -59,3 +54,51 @@ function myFunction4(directorName){
     return movies.filter((v)=> v.director == directorName).map((value)=> value.title)
 }
 console.log(myFunction4("Peter Jackson"))
+
+// intermediate++ Scripting
+//1. buat function tanpa parameters contoh myFunction(), dimana mereturn jumlah film berdasarkan genre
+// return dalam bentuk object contoh sbb {Action: 3, Drama: 2, Crime: 1, Thriller: 4}
+//notes: banyaknya properties object bergantung pada banyaknya jenis genre yang ada
+function myFunction5(){
+    const movies = [...greatMovies]
+    const arrGenres = []
+    movies.forEach((v)=>{
+        for (x in v.genre){
+            if(arrGenres.filter((b, index)=> arrGenres[index] == v.genre[x]).length==0){
+                arrGenres.push(v.genre[x])
+            }
+        }
+    })
+    let objGenres = {}
+    for(x in arrGenres){
+        let newObj = {}
+        genre = arrGenres[x]
+        jumlahFilm = movies.filter((v)=> v.genre.find((a)=> a == genre)).length
+        newObj[genre] = jumlahFilm
+        objGenres = Object.assign(objGenres, newObj)
+    }
+    return objGenres
+}
+console.log(myFunction5())
+//result
+// {
+//   Crime: 14,
+//   Drama: 35,
+//   Action: 8,
+//   Thriller: 10,
+//   Biography: 3,
+//   History: 1,
+//   Adventure: 13,
+//   Fantasy: 8,
+//   Western: 2,
+//   Comedy: 6,
+//   Romance: 4,
+//   'Sci-Fi': 8,
+//   Mystery: 7,
+//   Family: 4,
+//   War: 4,
+//   Animation: 2,
+//   Horror: 1,
+//   Music: 2,
+//   Musical: 1
+// }
