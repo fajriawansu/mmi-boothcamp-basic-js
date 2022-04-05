@@ -130,32 +130,30 @@ function jumlahGenre(){
     let sementara= [];
     let last = [];
     let hitungan = [];
-    for (let i = 0; i < tempArr.length; i++) {
+    let output = {};  
+    let indexNew = -1;
+    
+
+    for (let i = 0; i < tempArr.sort().length; i++) {
         for (let j = 0; j < tempArr[i].genre.length; j++) { 
-            sementara.push(tempArr[i].genre[j]);
+            sementara.push(tempArr.sort()[i].genre[j]);
         }   
     }
 
-    
-
-    let output = {};
-    let indexNew = -1;
     for(let i = 0; i < sementara.sort().length; i++){
-
         if(!last.includes(sementara.sort()[i])){
             last.push(sementara.sort()[i]);
             hitungan.push(1);  
-            indexNew = indexNew + 1; 
-        }else{
+            indexNew = indexNew + 1;       
+        }else{         
+            hitungan[indexNew] = hitungan[indexNew] + 1;     
             
-            hitungan[indexNew] = hitungan[indexNew] + 1;
         }
-
+        output[last[indexNew]] = hitungan[indexNew];   
     }
-    for (let i = 0; i < last.length; i++) {
-        output[last[i]] = hitungan[i];
-        
-    }
+    // for (let i = 0; i < last.length; i++) {
+    //     output[last[i]] = hitungan[i];       
+    // }
 
     
   
