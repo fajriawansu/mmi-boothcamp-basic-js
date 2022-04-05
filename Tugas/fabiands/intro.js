@@ -175,6 +175,13 @@ const newFilter = copyOfMember.filter((value, index) => {
     return value.alamat.provinsi === "jawa barat"
 })
 
-console.log(newFilter);
+//console.log(newFilter);
 
-console.log(newMapping);
+//console.log(newMapping);
+
+const total = [1,2,3,4,5,6,7];
+const reduceTotal = total.reduce((preValue,currentValue,currentIndex,arr) =>{
+    return preValue + currentValue
+})
+
+console.log(reduceTotal);

@@ -99,7 +99,6 @@ const alamatKota = biodata.alamat.kota;
 const namaLengkap = biodata.nama_lengkap();
 
 // datatype array
-const dataDummy = require("./../fajriawan/dummyData");
 const selai = ["cokelat", "stroberi", "alpukat"];
 //1. Buat array baru "myArray" yang berisi string dan number (termasuk array selai)
 const arraySelai = ["Kelapa", "123", "Jeruk"]
@@ -149,6 +148,7 @@ arr4 = arr123.slice(0,3);
 
 // const warga = dataDummy.warga;
 //11. urutkan berdasarkan nama, ascending
+const dataDummy = require("./../fajriawan/dummyData");
 function myStringSort(a,b){
     let before = a.nama;
     let after = b.nama;
@@ -190,6 +190,32 @@ function search(umurBanding){
      })
      return searchNama;
 } 
+
+// some and every array
+//16. buat method .some() dengan array "warga" yang memiliki return "true"
+//17. buat method .some() dengan array "warga" yang memiliki return "false"
+function someTest(umurBanding){
+    const someTrue = listWarga.some((val) => val.umur > umurBanding)
+    return someTrue;
+}
+
+//18. buat method .every() dengan array "warga" yang memiliki return "true"
+function everyTest(umurBanding){
+    const everyTrue = listWarga.every((val) => val.umur > umurBanding)
+    return everyTrue;
+}
+//19. buat array "umurWarga" yang hanya menyimppan umur warga saja (tiap element adalah datatype number)
+const arrayUmur = listWarga.map((value, index) => {
+    return value.umur;
+})
+
+//20. total umur warga dari array 18 dengan metode .reduce()
+const reduceUmur = listWarga.reduce((total, value, index) => {
+    return total + parseInt(value.umur)
+}, 18)
+
+//21. dari array "warga", buat suatu variabel berisi array method yang mereturn object berisi warga bernama "Dimas"
+const cariNama = listWarga.find(val => val.nama === "Dimas")
 
 //Panggil
 console.log("---String---");
@@ -263,3 +289,15 @@ console.log(dataLengkap);
 console.log(filterUmur);
 //15
 console.log(search(23));
+//16
+console.log(someTest(10));
+//17
+console.log(someTest(100));
+//18
+console.log(everyTest(10));
+//19
+console.log(arrayUmur, typeof(arrayUmur[0]));
+//20
+console.log(reduceUmur);
+//21
+console.log(cariNama)
