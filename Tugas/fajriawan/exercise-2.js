@@ -1,9 +1,37 @@
 //basic js selasa
-const theNumber = [-1,-12,0,1,3,12,16,-25,12,71,32]
+const theNumber = [-1,-12,0,1,3,12,16,-25,12,71,32];
 //1. buat function yang mereturn array pangkat 2 dari tiap-tiap element (hasil: [1,144,0,1, ...])
 //2. buat function yang mereturn array perkalian 2 index berdekatan (hasil: [12, 0, 0, 3, 36, ... , -32])
 //3. buat function yang mereturn banyaknya bilangan genap dan ganjil dalam bentuk object (hasil: {genap: 6, ganjil: 5})
+function evenOddChecker(myArray = theNumber){
+    let tempOutput = {
+        genap: 0,
+        ganjil: 0
+    }
+    if(myArray?.length > 0){
+        myArray.forEach((v) => {
+            Math.abs(v) % 2 > 0 ? tempOutput.ganjil ++ : tempOutput.genap ++
+        })
+        return tempOutput
+
+    } else {
+        return "Arraynya kosong"
+    }
+}
+
+// console.log(evenOddChecker(theNumber))
+
 //4. buat function yang mereturn array dengan urut dari bilangan terkecil ke besar
+function sortFunction(){
+    let myArray = [...theNumber]
+    if(Array.isArray(myArray)){
+        return myArray.sort((a,b) => a - b);
+    }
+}
+
+console.log(sortFunction(theNumber), theNumber)
+
+
 //5. buat function yang mereturn array yang tiap elemennya terbalik tanda positif negatif nya (hasil: [1,12,0,-1,-3,-12 ...])
 
 // basic js selasa (js condition)
@@ -17,6 +45,15 @@ const theNumber = [-1,-12,0,1,3,12,16,-25,12,71,32]
 // jika myFunction(50, "byte", "bit") akan mereturn angka 400 (gak case sensitive)
 // jika myFunction(10) akan mereturn nilai 10
 // default return string "Error"
+function bitByteConversion(number, satuanAwal, satuanAkhir){
+    if(satuanAwal == 'bit' && satuanAkhir == 'byte'){
+        return number / 8
+    }
+    // belom kelar
+}
+
+// console.log(bitByteConversion(400, 'bit', 'byte'))
+
 
 //3. buat function konversi suhu (celcius, kelvin, fahrenheit) dengan 3 parameters contoh myFunction(val1, str1, str2)
 // val1 = angka suhu awal, str1 = satuan suhu awal, str2 = satuan suhu akhir (mengkonversi suhu str1 ke str2)
