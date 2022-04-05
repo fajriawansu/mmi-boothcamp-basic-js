@@ -182,7 +182,6 @@ const filterUmur = listWarga.filter((value, index) => {
 // jika myFunction(32) akan mereturn array ["Budi"]
 // jika myFunction(23) akan mereturn array ["Dindin", "Raisa
 function search(umurBanding){
-    //let umurBanding = 23;
     let searchUmur = listWarga.filter((value, index) => {
         return value.umur === umurBanding;
      })
