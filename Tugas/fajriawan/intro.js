@@ -237,7 +237,7 @@ function myStringSort(a,b){
 
 // mapping array
 
-const newMapping = member.map((value, index) => {
+const newMapping = member.map((value, index, array) => {
     return {
         fullname: value.nama_depan + " " + value.nama_belakang
     }
@@ -253,8 +253,25 @@ const dummyWarga = dataDummy.warga;
 
 
 
-console.log(dummyWarga)
+// console.log(dummyWarga)
 
+const total = [1,2,4,19,12,14]
+const reduceTotal = total.reduce((prevValue, currentValue, currentIndex, arr) => {
+    return prevValue + currentValue
+})
+
+const reduceUmurWarga = dummyWarga.reduce((total, value, index) => {
+    return total + parseInt(value.umur)
+}, 0)
+
+// console.log(reduceUmurWarga)
+
+// some and every array
+const learnEverySome = total.some((val) => val > 20)
+const everyWarga = dummyWarga.every((val) => val.umur > 8 ) // should return true
+
+const indexOfWargaByName = dummyWarga.find(val => val.nama === "Budi")
+console.log(indexOfWargaByName)
 
 
 

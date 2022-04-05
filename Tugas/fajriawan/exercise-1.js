@@ -78,3 +78,11 @@ const arr3 = ["Robin", "Morgan"];
 //15. buat function contoh myFunction(num1) yang berisi arguments umur
 // jika myFunction(32) akan mereturn array ["Budi"]
 // jika myFunction(23) akan mereturn array ["Dindin", "Raisa
+
+// selasa jam set 11 nih
+//15. buat method .some() dengan array "warga" yang memiliki return "true"
+//16. buat method .some() dengan array "warga" yang memiliki return "false"
+//17. buat method .every() dengan array "warga" yang memiliki return "true"
+//18. buat array "umurWarga" yang hanya menyimppan umur warga saja (tiap element adalah datatype number)
+//19. total umur warga dari array 18 dengan metode .reduce()
+//20. dari array "warga", buat suatu variabel berisi array method yang mereturn object berisi warga bernama "Dimas"
