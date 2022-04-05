@@ -192,6 +192,8 @@ const arr4 = arr123.splice(0, 4)
 console.log(arr4)
 
 
+const { warga } = require("./../fajriawan/dummyData");
+const dummyData = require("./../fajriawan/dummyData");
 const dataDummy = require("./../fajriawan/dummyData");
 // const warga = dataDummy.warga;
 //11. urutkan berdasarkan nama, ascending
@@ -259,3 +261,45 @@ console.log(tes);
 // jika myFunction(23) akan mereturn array ["Dindin", "Raisa
 
 
+// selasa jam set 11 nih
+//15. buat method .some() dengan array "warga" yang memiliki return "true"
+
+const wargaTrue = dataDummy.warga.some((val) => val.umur > 20)
+
+console.log(wargaTrue);
+
+
+
+//16. buat method .some() dengan array "warga" yang memiliki return "false"
+const wargaFalse = dataDummy.warga.some((val) => val.umur > 90)
+
+console.log(wargaFalse);
+
+//17. buat method .every() dengan array "warga" yang memiliki return "true"
+
+const wargaTrueEvery = dataDummy.warga.every((val) => val.umur > 10)
+
+console.log(wargaTrueEvery);
+//18. buat array "umurWarga" yang hanya menyimppan umur warga saja (tiap element adalah datatype number)
+
+const umurWarga = dataDummy.warga.map((value, index, array) => {
+    return {
+        umur: parseInt(value.umur) 
+    }
+})
+
+console.log(umurWarga)
+
+
+//19. total umur warga dari array 18 dengan metode .reduce()
+
+const reduceUmurWarga = umurWarga.reduce((total, value, index) => {
+    return total + parseInt(value.umur)
+}, 0)
+
+console.log(reduceUmurWarga);
+
+//20. dari array "warga", buat suatu variabel berisi array method yang mereturn object berisi warga bernama "Dimas"
+
+const indexOfWargaByName = dataDummy.warga.find(val => val.nama === "Dimas")
+console.log(indexOfWargaByName)
