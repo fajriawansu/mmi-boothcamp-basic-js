@@ -227,3 +227,35 @@ const newMapping = dataDummy.warga.map((value, index) => {
 })
 
 console.log(newMapping);
+
+
+
+//selasa nih
+
+//14. buat array yang hanya menampilkan 'warga' di bawah umur 30
+
+
+const newFilter = dataDummy.warga.filter((value, index) => {
+    return value.umur < 30
+})
+
+console.log(newFilter);
+
+//15. buat function contoh myFunction(num1) yang berisi arguments umur
+
+function myFunction(umur){
+    const filterByAge = dataDummy.warga.filter((value,index) => {
+       
+       return value.umur == umur 
+    })
+    return filterByAge;
+}
+
+const tes = myFunction(23);
+
+console.log(tes);
+
+// jika myFunction(32) akan mereturn array ["Budi"]
+// jika myFunction(23) akan mereturn array ["Dindin", "Raisa
+
+
