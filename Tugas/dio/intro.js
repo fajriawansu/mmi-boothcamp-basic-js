@@ -112,7 +112,7 @@ console.log(arr2.slice(1,3));//tampil dari index 1 sampai 3-1
 console.log(arr1.sort()+" "+arr2.sort())
 console.log(arr1.reverse()+" "+arr2.reverse())
 
-console.log(arr1.sort(function(a,b){return a-b}))//sort peke function (hanya bisa number)
+console.log(arr1.sort(function(a,b){return a-b}))//sort pake function (hanya bisa number)
 console.log(arr1.sort(function(a,b){return b-a}))//sama
 
 console.log(Math.max(1,22,3,4,5))//nilai max
@@ -135,7 +135,7 @@ belajarSort.sort(function a(a,b){ //sort berdasarkan nama (karena string)
 })
 console.log(belajarSort)
 
-//iteration
+//iteration(perulangan) array
 belajarSort.forEach(iterationFunction)
 function iterationFunction(value, index, array){
     return console.log(`nama orang ke-${index+1} adalah ${value.nama}`)
@@ -186,9 +186,12 @@ console.log(Math.random())//random 0-1
 console.log((x<12)? ((x<10)? ((x<5)? true:"lebih dari 5"):"lebih dari 10") :"lebih dari 12")
 
 //loop
-for(bel in belajarSort[0]){
-    console.log(bel)
+for(bel in belajarSort[1]){//untuk object
+    console.log(bel, belajarSort[1][bel])
 }
-for(f in belajarSort){
-    console.log(belajarSort[f].nama)
+for(f in belajarSort){//untuk array
+    console.log(f, belajarSort[f])
+}
+for(st of [1,2,3,["d","i","o"]]){ //of untuk string atau array
+    console.log(st)
 }
