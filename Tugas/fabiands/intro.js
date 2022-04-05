@@ -184,4 +184,5 @@ const reduceTotal = total.reduce((preValue,currentValue,currentIndex,arr) =>{
     return preValue + currentValue
 })
 
+const dataDummy = require("./../fajriawan/dummyData");
 console.log(reduceTotal);
