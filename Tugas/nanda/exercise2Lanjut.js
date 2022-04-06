@@ -110,3 +110,4 @@ console.log(myFunction6("Francis Ford Coppola"));
 //1. buat function tanpa parameters contoh myFunction(), dimana mereturn jumlah film berdasarkan genre
 // return dalam bentuk object contoh sbb {Action: 3, Drama: 2, Crime: 1, Thriller: 4}
 //notes: banyaknya properties object bergantung pada banyaknya jenis genre yang ada
+
