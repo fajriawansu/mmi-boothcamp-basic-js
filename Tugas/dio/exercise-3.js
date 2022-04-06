@@ -20,7 +20,7 @@ console.log(myFunc("#0048BA"))
 //notes: gunakan dataDummy warna
 function myFunc1(colorname){
   return warna.filter((v)=>
-            v.name.toLowerCase().includes(colorname)
+            v.name.toLowerCase().includes(colorname.toLowerCase())
          ).map((v)=> v.name)
 }
 console.log(myFunc1("grey"))
