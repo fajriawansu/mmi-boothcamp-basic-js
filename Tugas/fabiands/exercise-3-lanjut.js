@@ -69,19 +69,36 @@ console.log(colorRandom());
 // jika myFunc(60), output ["Ayam Goreng", "Sate Padang", ...]
 // notes: gunakan dataDummy resep
 const cookDuration = (minutes) =>{
-    const cookDur = resep.filter((value, index)=>{
-        for(let i=0; i<value.length; i++){
-            return value.minutes[i] === minutes;
+    output = [];
+    [...resep].forEach((v)=>{
+        if(v.timers.reduce((total, value)=> total+value)<=minutes){
+            output.push(v.name);
         }
     })
-    return cookDur;
+    return(output);
 }
-console.log(cookDuration(60))
+console.log(cookDuration(60));
 
 //7. buat function contoh myFunc(minutes, totalIngredients), yang mereturn array resep makanan
 // yang selesai <= minutes dan total ingredients <= totalIngredients
 // jika myFunc(60, 5), output ["Ayam Goreng", "Sate Padang", ...]
 // notes: gunakan dataDummy resep
+const durationIngredients = (minutes, numIng) =>{
+    output = [];
+    [...resep].forEach((v)=>{
+        if(v.timers.reduce((total, value)=> total+value)<=minutes){
+            output.push(v);
+        }
+    });
+    let ingredientsNumber = output.filter((value, index)=>{
+        return value.ingredients.length === numIng;
+    });
+    const ingredientsName = ingredientsNumber.map((value,index)=>{
+        return value.name;
+    })
+    return(ingredientsName);
+}
+console.log(durationIngredients(60, 3));
 
 //8. buat function contoh myFunc(theIngredients), yang mereturn array resep makanan yang membutuhkan bahan theIngredients
 // jika myFunc("Sugar"), output ["Ayam Goreng", "Sate Padang", ...]
