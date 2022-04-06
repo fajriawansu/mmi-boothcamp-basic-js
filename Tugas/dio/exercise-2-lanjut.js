@@ -64,41 +64,17 @@ function myFunction5(){
     const arrGenres = []
     movies.forEach((v)=>{
         for (x in v.genre){
-            if(arrGenres.filter((b, index)=> arrGenres[index] == v.genre[x]).length==0){
+            if(arrGenres.filter((index)=> arrGenres[index] == v.genre[x]).length==0){
                 arrGenres.push(v.genre[x])
             }
         }
     })
     let objGenres = {}
     for(x in arrGenres){
-        let newObj = {}
-        genre = arrGenres[x]
-        jumlahFilm = movies.filter((v)=> v.genre.find((a)=> a == genre)).length
-        newObj[genre] = jumlahFilm
-        objGenres = Object.assign(objGenres, newObj)
+        let tempObj = {}
+        tempObj[arrGenres[x]] = movies.filter((v)=> v.genre.find((a)=> a == arrGenres[x])).length
+        objGenres = Object.assign(objGenres, tempObj)
     }
     return objGenres
 }
 console.log(myFunction5())
-//result
-// {
-//   Crime: 14,
-//   Drama: 35,
-//   Action: 8,
-//   Thriller: 10,
-//   Biography: 3,
-//   History: 1,
-//   Adventure: 13,
-//   Fantasy: 8,
-//   Western: 2,
-//   Comedy: 6,
-//   Romance: 4,
-//   'Sci-Fi': 8,
-//   Mystery: 7,
-//   Family: 4,
-//   War: 4,
-//   Animation: 2,
-//   Horror: 1,
-//   Music: 2,
-//   Musical: 1
-// }
