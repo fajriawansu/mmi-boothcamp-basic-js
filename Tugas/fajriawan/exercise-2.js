@@ -1,3 +1,5 @@
+const dummyData = require("./dummyData");
+
 //basic js selasa
 const theNumber = [-1,-12,0,1,3,12,16,-25,12,71,32];
 //1. buat function yang mereturn array pangkat 2 dari tiap-tiap element (hasil: [1,144,0,1, ...])
@@ -29,7 +31,7 @@ function sortFunction(){
     }
 }
 
-console.log(sortFunction(theNumber), theNumber)
+// console.log(sortFunction(theNumber), theNumber)
 
 
 //5. buat function yang mereturn array yang tiap elemennya terbalik tanda positif negatif nya (hasil: [1,12,0,-1,-3,-12 ...])
@@ -65,3 +67,5 @@ function bitByteConversion(number, satuanAwal, satuanAkhir){
 //4. buat function dengan 1 parameters contoh myFunction(num1) untuk mengecek kelipatan 3
 // jika myFunction(6) akan mereturn "Kelipatan 3"
 // jika myFunction(13) akan mereturn "Bukan Kelipatan 3"
+
+console.log(dummyData.color);
