@@ -1,5 +1,11 @@
+const { mahasiswa, dosen, matkul } = require("./../fajriawan/dummyData");
+
 const warna = require("./../fajriawan/dummyData").warna;
 const resep = require("./../fajriawan/dummyData").resep;
+const dosenN = require("./../fajriawan/dummyData").dosen;
+const mahasiswaA = require("./../fajriawan/dummyData").mahasiswa;
+const matkulL = require("./../fajriawan/dummyData").matkul;
+
 
 // tambahan jam 12 siang
 
@@ -167,7 +173,7 @@ const cookingTime = (minutes) =>{
     return output;
 }
 
-console.log(cookingTime(15));
+console.log(cookingTime(60));
 
 
 
@@ -225,3 +231,83 @@ const kandunganBahan = (theIngredients) => {
 }
 
 console.log(kandunganBahan("Sugar"))
+
+
+
+
+// data relation
+//9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
+// menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
+// tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
+
+
+
+
+
+
+
+
+
+
+
+const menambahDetail = () =>{
+    let mahasiswaNew = [...mahasiswaA]
+    let matkulNew = [...matkulL]
+    let dosenNew = [...dosenN]
+
+    let mahasiswaOutput =[];
+
+    let arrMatkul = [];
+    let arrDosen = [];
+    
+
+    let indexOutput = 0;
+
+        for (let i = 0; i < mahasiswaNew.length; i++) {
+            for (let j = 0; j < mahasiswaNew[i].matkul_id.length; j++) {
+                for (let k = 0; k < matkulNew.length; k++) {
+                    if(mahasiswaNew[i].matkul_id[j] == matkulNew[k].id){
+                        arrMatkul.push(matkulNew[k])
+                    }    
+                }
+
+                for (let m = 0; m < dosenNew.length; m++) {
+                    if (mahasiswaNew[i].dosbing_id[j] == dosenNew[m].id) {
+                        arrDosen.push(dosenNew[m])
+                    }
+                    
+                }
+                if(j == mahasiswaNew[i].matkul_id.length - 1){
+                    mahasiswaOutput[i] = mahasiswaNew[i]
+                    mahasiswaOutput[i].data_matkul = arrMatkul;
+                    // mahasiswaNew[i].data_matkul = arrMatkul;
+                    arrMatkul = [];
+                    mahasiswaOutput[i].data_dosen = arrDosen;
+                    // mahasiswaNew[i].data_dosbing = arrDosen;
+                    arrDosen = [];
+                }
+              
+                
+            }
+
+
+            
+        }
+    
+
+    return mahasiswaOutput;
+}
+
+// menambahDetail().forEach((v)=>{console.log(v)})
+
+
+// for (let i = 0; i < menambahDetail().length; i++) {
+//     console.log(menambahDetail()[i])  
+// }
+
+// console.log("====BATASAN=====")
+// console.log([...mahasiswa])
+
+
+
+
