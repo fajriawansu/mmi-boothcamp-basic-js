@@ -9,7 +9,7 @@ const warna = require("./../fajriawan/dummyData").warna;
 function warnaFunction(hexcode){
     let tempArr = [...warna]
     let nama = tempArr.find((v) => v.hex == hexcode);
-    return nama;
+    return nama.name;
 
 }
 
@@ -37,5 +37,5 @@ return output;
 }
 
 
-console.log(cariWarna("grey"));
+console.log(cariWarna("GrEy"));
 //console.log(warna[0]);
