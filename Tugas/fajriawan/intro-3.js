@@ -98,3 +98,4 @@ const arrowFunc = (a,b) => {
 }
 
 // arrowFunc(2,4);
+// test stash
