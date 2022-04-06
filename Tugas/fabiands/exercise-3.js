@@ -22,10 +22,10 @@ console.log(colorHex("#0048BA"));
 function filterColor(colorName){
     nameFilter = [];
     const filter = warna.filter((value,index)=>{
-        if(value.name.includes(colorName)==true){
+        if(value.name.toLocaleLowerCase().includes(colorName.toLocaleLowerCase())==true){
             nameFilter.push(value.name);
         }
     });
     return nameFilter;
 }
-console.log(filterColor("Grey"));
+console.log(filterColor("GREY"));
