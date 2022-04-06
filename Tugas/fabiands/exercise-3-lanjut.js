@@ -86,10 +86,13 @@ console.log(cookDuration(60))
 //8. buat function contoh myFunc(theIngredients), yang mereturn array resep makanan yang membutuhkan bahan theIngredients
 // jika myFunc("Sugar"), output ["Ayam Goreng", "Sate Padang", ...]
 // notes: gunakan dataDummy resep
-const cookIng = (foodIngredients) =>{
-    const foodRecipe = resep.filter((value,index)=>{
-            return value.ingredients.name === foodIngredients;
-        })
-    return foodRecipe;
+const cookIngredients = (foodIngredients) =>{
+    let output = [];
+    [...resep].forEach((v)=> {
+        if(v.ingredients.some(value => value.name == foodIngredients)){
+            output.push(v.name);
+        }
+    })
+    return output;
 }
-console.log(cookIng(" beef roast"));
+console.log(cookIngredients("sugar"));
