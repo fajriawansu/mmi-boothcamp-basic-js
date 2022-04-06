@@ -167,7 +167,7 @@ const cookingTime = (minutes) =>{
     return output;
 }
 
-console.log(cookingTime(15));
+console.log(cookingTime(60));
 
 
 
