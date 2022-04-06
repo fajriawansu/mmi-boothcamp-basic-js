@@ -32,7 +32,7 @@ console.log(myFunc1("grey"))
 const genapGanjilFunc = ()=>{
     const output = {"sum_all_genap" : 0, "sum_all_ganjil" : 0}
     for(let i=0; i<=20; i++){
-        i%2==0?output["sum_all_genap"]++:output["sum_all_ganjil"]++
+        i%2==0 ? output["sum_all_genap"]++ : output["sum_all_ganjil"]++
     }
     return output
 }
@@ -46,10 +46,10 @@ const bilPriGeGaFunc = ()=>{
     for(let i = 0; i<=20; i++){
         prim = 0
         for(let j = 1; j<=i; j++){
-            i%j==0?prim++:false
+            i%j==0 ? prim++ : false
         }
-        i%2==0?output["genap"].push(i):((i%2!=0)?output["ganjil"].push(i):false)
-        prim == 2?output["prima"].push(i):false
+        i%2==0 ? output["genap"].push(i) : ((i%2!=0) ? output["ganjil"].push(i) : false)
+        prim == 2 ? output["prima"].push(i) : false
     }
     return output
 }
@@ -63,8 +63,8 @@ console.log(bilPriGeGaFunc())
 const kelipatanFunc = ()=>{
     let output = []
     for(let i = 0; i<=20; i++){
-        i==0?output.push(i):(i%2==0 && i%3==0?output.push("lipat2dan3"):
-        (i%2==0? output.push("lipat2"):(i%3==0?output.push("lipat3"):output.push(i))))
+        i==0 ? output.push(i) : (i%2==0 && i%3==0 ? output.push("lipat2dan3") :
+        (i%2==0 ? output.push("lipat2") : (i%3==0 ? output.push("lipat3") : output.push(i))))
     }
     return output
 }
@@ -75,7 +75,7 @@ console.log(kelipatanFunc())
 const sumFunc = ()=>{
     let total = 0
     for(let i = 1; i<=99; i++){
-        i%5==0 || i%7==0?total += i:false
+        i%5==0 || i%7==0 ? total += i : false
     }
     return total
 }
