@@ -97,4 +97,4 @@ const arrowFunc = (a,b) => {
     return console.log(first+second);
 }
 
-arrowFunc(2,4);
+// arrowFunc(2,4);
