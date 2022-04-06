@@ -88,25 +88,40 @@ console.log(movieDirectorString("Charles Chaplin"));
 //1. buat function tanpa parameters contoh myFunction(), dimana mereturn jumlah film berdasarkan genre
 // return dalam bentuk object contoh sbb {Action: 3, Drama: 2, Crime: 1, Thriller: 4}
 //notes: banyaknya properties object bergantung pada banyaknya jenis genre yang ada
-function jumlahGenre() {
-  const movies = [...greatMovies];
-  const genreArray = [];
-  movies.forEach((value) => {
-    for (x in value.genre) {
-      if (genreArray.filter((b, index) => genreArray[index] == value.genre[x]).length == 0){
-        genreArray.push(value.genre[x]);
-      }
-    }
-  });
-  let objGenres = {};
-  for (x in genreArray) {
-    let newObj = {};
-    genre = genreArray[x];
-    jumlahFilm = movies.filter((value) =>value.genre.find((a) => a == genre)).length;
-    newObj[genre] = jumlahFilm;
-    objGenres = Object.assign(objGenres, newObj);
-  }
-  return objGenres;
+// function jumlahGenre() {
+//   const genreArray = [];
+//   [...greatMovies].forEach((value) => {
+//     for (x in value.genre) {
+//       if (genreArray.filter((b, index) => genreArray[index] == value.genre[x]).length == 0){
+//         genreArray.push(value.genre[x]);
+//       }
+//     }
+//   });
+//   let objGenres = {};
+//   for (x in genreArray) {
+//     let newObj = {};
+//     genre = genreArray[x];
+//     jumlahFilm = movies.filter((value) =>value.genre.find((a) => a == genre)).length;
+//     newObj[genre] = jumlahFilm;
+//     objGenres = Object.assign(objGenres, newObj);
+//   }
+//   return objGenres;
+// }
+function countByGenre(){
+    // const movies = [ ...greatMovies ];
+    let output = {};
+
+    [...greatMovies].forEach((val) => {
+        val.genre.forEach((genreName) => {
+            if(output.hasOwnProperty(genreName)){
+                output[genreName] ++
+            } else {
+                output[genreName] = 1
+            }
+        })
+    })
+    return output;
 }
+
 console.log("---6---");
-console.log(jumlahGenre());
+console.log(countByGenre());

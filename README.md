@@ -1,3 +1,3 @@
 # mmi-boothcamp-basic-js
 
-tulis aja
+tulis aja deh
