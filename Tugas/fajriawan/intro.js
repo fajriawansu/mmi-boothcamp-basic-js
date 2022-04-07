@@ -251,8 +251,6 @@ const newFilter = member.filter((value, index) => {
 
 const dummyWarga = dataDummy.warga;
 
-
-
 // console.log(dummyWarga)
 
 const total = [1,2,4,19,12,14]
