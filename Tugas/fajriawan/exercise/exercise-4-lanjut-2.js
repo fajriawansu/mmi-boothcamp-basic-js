@@ -46,11 +46,12 @@ class PlusMethods extends Recipes {
         return output
     }
     showOnlyFromTo(argIndex1, argIndex2, isAsc){
-        //2.m RecipesFormula.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
+        //2.m PlusMethods.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
         // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
-        // addnotes: RecipesFormula.showOnlyFromTo(0,10) akan menampilkan 11 data (index 0 sampai 10)
+        // addnotes: PlusMethods.showOnlyFromTo(0,10, true) akan menampilkan 11 data (index 0 sampai 10)
         // addnotes: jika argIndex1 < 0, akan terbaca sebagai index 0
         // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
+        // adnotes: jika arg2 > arg1 = tetap menampilkan data pada index arg1 sampai arg2
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
 }
