@@ -161,9 +161,9 @@ function myStringSort(a, b) {
     return 1;
   }
 }
-const listWarga = dataDummy.warga;
 
 //12. urutkan berdasarkan umur, descending
+const listWarga = dataDummy.warga;
 function sortMember() {
   return listWarga.sort(mySort);
 }
