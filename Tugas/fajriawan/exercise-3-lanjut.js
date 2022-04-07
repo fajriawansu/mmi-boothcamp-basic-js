@@ -87,3 +87,30 @@ const foodWithIngred = (theIngredients) => {
 }
 
 // foodWithIngred("raisins");
+const fullDataMhs = () => {
+
+    let output = [];
+    [...mahasiswa].forEach((v) => {
+
+        let tempMatkul = [];
+        [...v.matkul_id].forEach((valId) => {
+            // console.log(matkul.find(_matkulId => _matkulId.id == valId));
+            tempMatkul.push(matkul.find(_matkulId => _matkulId.id == valId))
+        })
+        let tempDosbing = [];
+        [...v.dosbing_id].forEach((valId) => {
+            if(valId == dosen.find(_dosenId => _dosenId.id == valId).id ){
+                tempDosbing.push(dosen[dosen.findIndex(__dosenId => __dosenId.id == valId)])
+            }
+        })
+        output.push({
+            ...v,
+            data_matkul: tempMatkul,
+            data_dosbing: tempDosbing
+        })
+    })
+
+    return console.log(output)
+}
+
+fullDataMhs();

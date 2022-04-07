@@ -188,42 +188,88 @@ const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
 const dosen = require("./../fajriawan/dummyData").dosen;
 const matkul = require("./../fajriawan/dummyData").matkul;
 
-const jadwalKuliah = (namaMahasiswa) =>{
-    outputDosen = [];
-    outputMatkul = [];
-    output = [];
-    test = [];
-    [...mahasiswa].forEach((v)=>{
-        let tempName = v.name;
-        if(tempName.toString().toLowerCase().indexOf(namaMahasiswa.toLowerCase())!=-1){
-            outputMatkul.push(v.matkul_id);
-            outputDosen.push(v.dosbing_id);
-        }
-    });
+const fullDataMhs = () => {
 
-    [...dosen].forEach((v)=>{
-        const tempDosen = v.id;
-        tempDosen.forEach((a)=>{
-            outputDosen.forEach((d)=>{
-                if(a===d){
-                    test.push("samani")
-                }
-            });
-        });
-        
-    });
+    let output = [];
+    [...mahasiswa].forEach((v) => {
 
-    return(test);      
-    
-    
+        let tempMatkul = [];
+        [...v.matkul_id].forEach((valId) => {
+            // console.log(matkul.find(_matkulId => _matkulId.id == valId));
+            tempMatkul.push(matkul.find(_matkulId => _matkulId.id == valId))
+        })
+        let tempDosbing = [];
+        [...v.dosbing_id].forEach((valId) => {
+            if(valId == dosen.find(_dosenId => _dosenId.id == valId).id ){
+                tempDosbing.push(dosen[dosen.findIndex(__dosenId => __dosenId.id == valId)])
+            }
+        })
+        output.push({
+            ...v,
+            data_matkul: tempMatkul,
+            data_dosbing: tempDosbing
+        })
+    })
+
+    return console.log(output)
 }
-console.log(jadwalKuliah("udin"));
+
+fullDataMhs();
 
 
 //10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
 // jika myFunc("Pak Diki"), output ["Asep", "Udin"]
 // notes: gunakan dataDummy bulk mahasiswa
+const fullDosen = (namaDosen) => {
+    let output = [];
+    let namaSiswa = [];
+    [...dosen].forEach((v) => {
+        let nama = v.name;
+        if(nama.toString().toLowerCase().indexOf(namaDosen.toLowerCase())!=-1){
+            output.push(v.id);
+        }
+
+    })
+    
+    // return output;
+    const myObj = [...mahasiswa]
+    myObj.forEach((v) => {
+        let string_id = output.join()
+        let dosenId = v.dosbing_id;
+        if(dosenId.toString().toLowerCase().indexOf(string_id.toLowerCase())!=-1){
+            namaSiswa.push(v.name)
+        }
+
+    })
+    return namaSiswa;
+}
+
+console.log(fullDosen("Pak Gun"));
+
+
 
 //11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
 // jika myFunc("Dimas"), output 10
 // notes: gunakan dataDummy bulk mahasiswa
+const fullsksMhs = (namaMahasiswa) => {
+    let output = [];
+    let tempsks = [];
+    [...mahasiswa].forEach((v) => { 
+        let namaSiswa = v.name;
+        if(namaSiswa.toString().toLowerCase().indexOf(namaMahasiswa.toLowerCase())!=-1){
+            output.push(v.matkul_id);
+        }
+        
+        [...output].forEach((valId) => {
+            if(valId == matkul.find(_dosenId => _dosenId.id == valId).id ){
+                tempsks.push(matkul[matkul.findIndex(__dosenId => __dosenId.id == valId)].sks)
+            }
+        })
+
+
+    })
+    return tempsks;
+}
+
+console.log(fullsksMhs("Udin"));
+
