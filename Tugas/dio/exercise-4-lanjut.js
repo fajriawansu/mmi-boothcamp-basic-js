@@ -15,14 +15,14 @@ class Recipes {
         // berdasarkan nama makanan secara ascending
         return this.data.sort((a,b)=>{
            return a.name.toLowerCase()<b.name.toLowerCase()? -1 : a.name.toLowerCase()>a.name.toLowerCase() ? 1 : 0
-        }).map((v)=> v.name)
+        })
     }
     sortDescByFoodName(){
         //2.c RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara descending
         return this.data.sort((a,b)=>{
             return a.name.toLowerCase()>b.name.toLowerCase()? -1 : a.name.toLowerCase()<a.name.toLowerCase() ? 1 : 0
-         }).map((v)=> v.name) 
+         })
     }
     sortAscByTimeToCook(){
         //2.d RecipesFormula.sortAscByTimeToCook() akan mereturn array yang diurukan

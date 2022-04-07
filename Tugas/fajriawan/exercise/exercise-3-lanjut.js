@@ -1,10 +1,10 @@
 // tambahan jam 12 siang
 
-const warna = require("./dummyData").warna;
-const resep = require("./dummyData").resep;
-const mahasiswa = require("./dummyData").mahasiswa;
-const matkul = require("./dummyData").matkul;
-const dosen = require("./dummyData").dosen;
+const warna = require("./../dummyData").warna;
+const resep = require("./../dummyData").resep;
+const mahasiswa = require("./../dummyData").mahasiswa;
+const matkul = require("./../dummyData").matkul;
+const dosen = require("./../dummyData").dosen;
 
 //basic js
 //1. buat function, yang mengecek tipe data arguments-arguments didalamnya

@@ -1,4 +1,4 @@
-const dummyData = require("./dummyData");
+const dummyData = require("./../dummyData");
 
 const greatMovies = dummyData.greatMovies
 
