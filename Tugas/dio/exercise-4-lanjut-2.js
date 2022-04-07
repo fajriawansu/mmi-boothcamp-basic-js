@@ -64,8 +64,30 @@ class PlusMethods extends Recipes {
         }
         return obj
     }
+    showOnlyFromTo(argIndex1, argIndex2, isAsc){
+        //2.m PlusMethods.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
+        // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
+        // addnotes: PlusMethods.showOnlyFromTo(0,10, true) akan menampilkan 11 data (index 0 sampai 10)
+        // addnotes: jika argIndex1 < 0, akan terbaca sebagai index 0
+        // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
+        // adnotes: jika arg2 > arg1 = tetap menampilkan data pada index arg1 sampai arg2
+        // jika isAsc = true, dia akan urut ascending, jika false dia descending
+        let obj = isAsc ?  this.sortAscByFoodName() :  this.sortDescByFoodName()
+        argIndex1 = argIndex1 < 0 ? 0 : argIndex1 > obj.length ? obj.length : argIndex1
+        argIndex2 = argIndex2 < 0 ? 0 : argIndex2 > obj.length ? obj.length : argIndex2
+        if (argIndex2 < argIndex1){
+           obj = obj.filter((v,index)=> index>=argIndex2 && index<=argIndex1)
+        }
+        else if (argIndex1 < argIndex2){
+           obj = obj.filter((v,index)=> index>=argIndex1 && index<=argIndex2)
+        }
+        else if (argIndex1 == argIndex2){
+            obj = obj.filter((v,index)=> index==argIndex1)
+        }
+        return obj.map((v)=> v.name)
+    }
 }
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAndShowFoodNameOnly(true));
+console.log(multiFormula.showOnlyFromTo(0,10,true));
