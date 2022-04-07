@@ -100,6 +100,7 @@ const fullDataMhs = () => {
 
         let tempMatkul = [];
         [...v.matkul_id].forEach((valId) => {
+            // console.log(matkul.find(_matkulId => _matkulId.id == valId));
             tempMatkul.push(matkul.find(_matkulId => _matkulId.id == valId))
         })
         let tempDosbing = [];
