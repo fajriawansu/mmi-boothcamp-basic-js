@@ -83,11 +83,3 @@ const foodWithIngred = (theIngredients) => {
 }
 
 // foodWithIngred("raisins");
-
-// data relation
-//9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
-// menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
-// tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
-const myFunc = () =>{
-    
-}

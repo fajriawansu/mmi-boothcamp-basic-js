@@ -74,3 +74,28 @@ const myFunc5 = (theIngredients)=>{
     return resep.filter((v)=> v.ingredients.filter((v)=> v.name.toLowerCase().includes(theIngredients.toLowerCase())).length > 0).map((v)=> v.name)
 }
 console.log(myFunc5("Sugar"))
+
+//9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
+const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
+const matkul = require("./../fajriawan/dummyData").matkul;
+const dosen = require("./../fajriawan/dummyData").dosen;
+// menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
+// tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
+const myFunc6 = ()=>{
+    mahasiswa.forEach((v,index)=>{
+       const data_matkul = []
+       const data_dosbing = []
+       for(x in v.matkul_id){
+        data_matkul.push(matkul.find((val)=> val.id == v.matkul_id[x]))
+       }
+       for(x in v.dosbing_id){
+        data_dosbing.push(dosen.find((val)=> val.id == v.dosbing_id[x]))
+       }
+       mahasiswa[index]["data_matkul"] = data_matkul
+       mahasiswa[index]["data_dosbing"] = data_dosbing
+    })
+    return mahasiswa
+}
+myFunc6().forEach((v)=>{
+    console.log(v)
+})
