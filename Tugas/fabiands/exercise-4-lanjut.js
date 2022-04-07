@@ -1,4 +1,4 @@
-const dataResep = require("./dummyData").resep
+const dataResep = require("./../fajriawan/dummyData").resep
 
 class Recipes {
     constructor(passedInData){
@@ -6,10 +6,19 @@ class Recipes {
     }
 
     static testMethod(){
+        
         //2.a Recipes.showData() akan mereturn string "Class running properly"
     }
 
     sortAscByFoodName(){
+        const ascData = [...this.data].sort((a,b)=> {
+            let left = a.name.toLowerCase();
+            let right = b.name.toLowerCase();
+            if(left<right) return-1;
+            if(left>right) return 1;
+        });
+        return ascData;
+
         //2.b RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara ascending
     }
@@ -26,4 +35,8 @@ class Recipes {
 
 const RecipesFormula = new Recipes(dataResep);
 
-console.log(RecipesFormula.sortAscByFoodName())
+console.log(RecipesFormula.sortAscByFoodName());
+
+module.exports = {
+    MyRecipes: Recipes
+}
