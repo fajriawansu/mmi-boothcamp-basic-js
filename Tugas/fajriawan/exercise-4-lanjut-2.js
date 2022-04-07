@@ -11,9 +11,11 @@ class PlusMethods extends Recipes {
         this.created_by = passedInName ? passedInName : "Administrator"
     }
     sortAndShowFoodNameOnly(isAsc){
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
         //3.k PlusMethods.showFoodNameOnly() akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan. ["Ayam Goreng", "Sate Padang", ...]
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
+        return tempData?.map(v => v.name)
     }
     nameIncludes(hasString, isAsc){
         //3.k PlusMethods.nameIncludes(hasString) akan mereturn array yang merupakan
@@ -36,4 +38,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAscByFoodName(true));
+console.log(multiFormula.sortAndShowFoodNameOnly(true));
