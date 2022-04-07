@@ -30,6 +30,17 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
     searchFoodWith(theIngred, isAsc){
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+
+        let output = [];
+
+        [...tempData].forEach((v) => {
+            if(v.ingredients.some(dataIng => dataIng.name.includes(theIngred))){
+                output.push(v.name);
+            }
+        })
+
+        return output
         //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -38,4 +49,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAndShowFoodNameOnly(true));
+console.log(multiFormula.searchFoodWith("sugar", true));
