@@ -1,5 +1,5 @@
 const Recipes = require("./exercise-4-lanjut").MyRecipes
-const dataDummy = require("./dummyData");
+const dataDummy = require("./../dummyData");
 
 const dataResep = dataDummy.resep
 
@@ -11,9 +11,11 @@ class PlusMethods extends Recipes {
         this.created_by = passedInName ? passedInName : "Administrator"
     }
     sortAndShowFoodNameOnly(isAsc){
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
         //3.k PlusMethods.showFoodNameOnly() akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan. ["Ayam Goreng", "Sate Padang", ...]
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
+        return tempData?.map(v => v.name)
     }
     nameIncludes(hasString, isAsc){
         //3.k PlusMethods.nameIncludes(hasString) akan mereturn array yang merupakan
@@ -28,6 +30,17 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
     searchFoodWith(theIngred, isAsc){
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+
+        let output = [];
+
+        [...tempData].forEach((v) => {
+            if(v.ingredients.some(dataIng => dataIng.name.includes(theIngred))){
+                output.push(v.name);
+            }
+        })
+
+        return output
         //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -36,4 +49,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAscByFoodName(true));
+console.log(multiFormula.searchFoodWith("sugar", true));

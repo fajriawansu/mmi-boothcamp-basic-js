@@ -1,4 +1,4 @@
-const dummyData = require("./dummyData");
+const dummyData = require("./../dummyData");
 
 //basic js selasa
 const theNumber = [-1,-12,0,1,3,12,16,-25,12,71,32];

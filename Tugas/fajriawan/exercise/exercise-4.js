@@ -1,5 +1,5 @@
 // function call
-const mahasiswa = require("./dummyData").mahasiswa
+const mahasiswa = require("./../dummyData").mahasiswa
 
 const stringMahasiswa = {
   name: "",
