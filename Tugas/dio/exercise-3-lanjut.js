@@ -104,7 +104,7 @@ myFunc6().forEach((v)=>{
 // notes: gunakan dataDummy bulk mahasiswa
 const myFunc7 = (namaDosen)=>{
     const datadosen = dosen.find((v)=> v.name.toLowerCase() == namaDosen.toLowerCase())
-    return datadosen ? mahasiswa.filter((v)=> v.dosbing_id.filter((val)=> val == datadosen.id)>0).map((v)=> v.name) : "Data Kosong"
+    return datadosen ? mahasiswa.filter((v)=> v.dosbing_id.filter((val)=> val == datadosen.id).length>0).map((v)=> v.name) : "Data Kosong"
 }
 console.log(myFunc7("Bu Isyana"))
 //11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
@@ -112,6 +112,6 @@ console.log(myFunc7("Bu Isyana"))
 // notes: gunakan dataDummy bulk mahasiswa
 const myFunc8 = (namaMahasiswa)=>{
     const dataMahasiswa = mahasiswa.find((v)=> v.name.toLowerCase()==namaMahasiswa.toLowerCase())
-    return dataMahasiswa ? matkul.filter((v)=> dataMahasiswa.matkul_id.filter((val)=> val==v.id)>0).reduce((sum, v)=> sum+v.sks,0) : "Data Kosong"
+    return dataMahasiswa ? matkul.filter((v)=> dataMahasiswa.matkul_id.filter((val)=> val==v.id).length>0).reduce((sum, v)=> sum+v.sks,0) : "Data Kosong"
 }
 console.log(myFunc8("Angga"))
