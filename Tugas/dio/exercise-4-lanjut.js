@@ -33,6 +33,7 @@ class Recipes {
         }).map((v)=> v.name)
     }
 }
+const RecipesFormula = new Recipes(dataResep);
 module.exports = {
     MyRecipes: Recipes
 }

@@ -1,4 +1,4 @@
-const dataResep = require("./dummyData").resep
+const dataResep = require("./../dummyData").resep
 
 class Recipes {
     constructor(passedInData){
