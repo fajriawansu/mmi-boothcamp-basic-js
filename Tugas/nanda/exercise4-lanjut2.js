@@ -19,31 +19,14 @@ class PlusMethods extends Recipes {
         return x
     }
     nameIncludes(hasString, isAsc){
-        const myObj = [...dataResep]
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
         let output = [];
-        myObj.forEach((v) => {
-            let tempName = v.name;
-            if(tempName.toString().toLowerCase().indexOf(hasString.toLowerCase())!=-1){
-                output.push(v);
+        [...tempData].forEach((v) => {
+            if(v.name.some(dataIng => dataIng.name.includes(hasString))){
+                output.push(v.name);
             }
         })
-        const tempDatax = output.sort((a,b) => {
-            let left = a.output.toLowerCase();
-            let right = b.output.toLowerCase();
-            if(left < right) return -1;
-            if(right < left) return 1
-        });
-
-        const tempDatax2 = output.sort((a,b) => {
-            let left = a.output.toLowerCase();
-            let right = b.output.toLowerCase();
-            if(left > right) return -1;
-            if(right > left) return 1
-        });
-
-        const tempData = isAsc ? tempDatax : tempDatax2
-        return tempData
-    
+        return output;
         //3.k PlusMethods.nameIncludes(hasString) akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan yang mengandung string "hasString"
         // contoh ["Ayam Goreng", "Ayam Bumbu Menteaga", "Sate Ayam", ...]
@@ -51,18 +34,34 @@ class PlusMethods extends Recipes {
     }
     
     searchFoodWithout(theIngred, isAsc){
-        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
-        let x = tempData?.map(v => v.name)
-        return x
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+
+        let output = [];
+
+        [...tempData].forEach((v) => {
+            if(!v.ingredients.some(dataIng => dataIng.name.includes(theIngred))){
+                output.push(v.name);
+            }
+        })
+
+        return output
         //3.k PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang tidak mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
         // ini jangan lupa dikasih tanda seru !v karna false.
     }
     searchFoodWith(theIngred, isAsc){
-        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
-        let x = tempData?.map(v => v.name)
-        return x
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+
+        let output = [];
+
+        [...tempData].forEach((v) => {
+            if(v.ingredients.some(dataIng => dataIng.name.includes(theIngred))){
+                output.push(v.name);
+            }
+        })
+
+        return output
         //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -74,5 +73,5 @@ console.log(dataResep);
 
 console.log(multiFormula.sortAndShowFoodNameOnly(true));
 console.log(multiFormula.nameIncludes("Roasted",true));
-// console.log(multiFormula.searchFoodWithout("salt",false));
-// console.log(multiFormula.searchFoodWith("sugar",false))
+console.log(multiFormula.searchFoodWithout("salt",false));
+console.log(multiFormula.searchFoodWith("sugar",false));
