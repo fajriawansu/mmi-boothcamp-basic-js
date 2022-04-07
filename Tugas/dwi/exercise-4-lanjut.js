@@ -91,4 +91,8 @@ class Recipes {
 const RecipesFormula = new Recipes(dataResep);
 
 // console.log(RecipesFormula.sortAscByFoodName())
-console.log(RecipesFormula.sortAscByTimeToCook())
+// console.log(RecipesFormula.sortAscByTimeToCook())
+
+module.exports = {
+    MyRecipes: Recipes
+}
