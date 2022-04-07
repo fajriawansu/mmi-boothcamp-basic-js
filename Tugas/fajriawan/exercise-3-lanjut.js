@@ -100,10 +100,7 @@ const fullDataMhs = () => {
 
         let tempMatkul = [];
         [...v.matkul_id].forEach((valId) => {
-            // console.log(valId, matkul.find(_matkulId => _matkulId.id == valId).id)
-            if(valId == matkul.find(_matkulId => _matkulId.id == valId).id ){
-                tempMatkul.push(matkul[matkul.findIndex(_matkulId => _matkulId.id == valId)])
-            }
+            tempMatkul.push(matkul.find(_matkulId => _matkulId.id == valId))
         })
         let tempDosbing = [];
         [...v.dosbing_id].forEach((valId) => {
