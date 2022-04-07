@@ -6,12 +6,13 @@ class Recipes {
     }
 
     static testMethod(){
-        //2.a Recipes.showData() akan mereturn string "Class running properly"
+        //2.a Recipes.testMethod() akan mereturn string "Class running properly"
     }
 
     sortAscByFoodName(){
         //2.b RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara ascending
+        return "Kepanggil"
     }
     sortDescByFoodName(){
         //2.c RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
@@ -26,4 +27,8 @@ class Recipes {
 
 const RecipesFormula = new Recipes(dataResep);
 
-console.log(RecipesFormula.sortAscByFoodName())
+// console.log(RecipesFormula.sortAscByFoodName());
+
+module.exports = {
+    MyRecipes: Recipes
+}
