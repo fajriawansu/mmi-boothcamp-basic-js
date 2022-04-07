@@ -1,3 +1,5 @@
+const { matkul } = require("../fajriawan/data-bank/dataMahasiswa");
+
 const warna = require("./../fajriawan/dummyData").warna;
 const resep = require("./../fajriawan/dummyData").resep;
 
@@ -118,13 +120,64 @@ console.log(cookIngredients("sugar"));
 //9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
 // menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
 // tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
-// const mataKulliah = require("./../fajriawan/dummyData").matkul;
-// const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
-// const dosen = require("./../fajriawan/dummyData").dosen;
+const mataKulliah = require("./../fajriawan/dummyData").matkul;
+const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
+const dosen = require("./../fajriawan/dummyData").dosen;
 
-// let arrayMahasiswa = [];
-// const dataLengkap = () =>{
-//     [...dosen].forEach((v)=>{
+const dataLengkap = () =>{
+    arrayMatkul = [...mataKulliah];
+    arrayMahasiswa = [...mahasiswa];
+    arrayDosen = [...dosen];
+    let outputMahasiswa = [];
+    let outputMatkul = [];
+    let outputDosen = [];
 
-//     })
-// }
+    for(let i = 0; i < arrayMahasiswa.length; i++){
+        for(let j = 0; j < arrayMahasiswa[i].matkul_id.length; j++){
+            for(let k = 0; k < mataKulliah.length; k++){
+                if(arrayMahasiswa[i].matkul_id[j] == arrayMatkul[k].id){
+                    outputMatkul.push(arrayMatkul[k]);
+                }
+            }
+            for(let k = 0; k < arrayDosen.length; k++){
+                if(arrayMahasiswa[i].dosbing_id[j] == arrayDosen[k].id){
+                    outputDosen.push(arrayDosen[j]);
+                }
+            }
+            if(j == arrayMahasiswa[i].matkul_id.length-1){
+                outputMahasiswa[i] = arrayMahasiswa[i];
+                outputMahasiswa[i].data_matkul = outputMatkul;
+                outputMatkul = [];
+                outputMahasiswa[i].data_dosen = outputDosen;
+                outputDosen = [];
+            }
+        }
+    }
+    return outputMahasiswa;
+}
+console.log(dataLengkap());
+
+//10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
+// jika myFunc("Pak Diki"), output ["Asep", "Udin"]
+// notes: gunakan dataDummy bulk mahasiswa
+const mahasiswaDosen = (namaDosen) =>{
+    let arrayMD = dataLengkap();
+    outputNama = [];
+    
+    for(let i = 0; i < arrayMD.length; i++){
+        for(let j = 0; j < arrayMD[i].data_dosen.length; j++){
+            if(arrayMD[i].data_dosen[j].name == namaDosen){
+                outputNama.push(arrayMD[i].name);
+            }
+        }
+    }
+    return outputNama;
+}
+console.log(mahasiswaDosen("Bu Isyana"));
+
+//11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
+// jika myFunc("Dimas"), output 10
+// notes: gunakan dataDummy bulk mahasiswa
+const sksMahasiswa = (namaMahasiswa) =>{
+
+}
