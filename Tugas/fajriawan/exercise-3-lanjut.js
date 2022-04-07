@@ -1,6 +1,10 @@
 // tambahan jam 12 siang
+
 const warna = require("./dummyData").warna;
 const resep = require("./dummyData").resep;
+const mahasiswa = require("./dummyData").mahasiswa;
+const matkul = require("./dummyData").matkul;
+const dosen = require("./dummyData").dosen;
 
 //basic js
 //1. buat function, yang mengecek tipe data arguments-arguments didalamnya
@@ -57,7 +61,7 @@ const foodBelowThisMinutes = (minutes) => {
     return console.log(output)
 }
 
-foodBelowThisMinutes(10);
+// foodBelowThisMinutes(10);
 
 //7. buat function contoh myFunc(minutes, totalIngredients), yang mereturn array resep makanan
 // yang selesai <= minutes dan total ingredients <= totalIngredients
@@ -88,6 +92,36 @@ const foodWithIngred = (theIngredients) => {
 //9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
 // menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
 // tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
+
+const fullDataMhs = () => {
+
+    let output = [];
+    [...mahasiswa].forEach((v) => {
+
+        let tempMatkul = [];
+        [...v.matkul_id].forEach((valId) => {
+            // console.log(valId, matkul.find(_matkulId => _matkulId.id == valId).id)
+            if(valId == matkul.find(_matkulId => _matkulId.id == valId).id ){
+                tempMatkul.push(matkul[matkul.findIndex(_matkulId => _matkulId.id == valId)])
+            }
+        })
+        let tempDosbing = [];
+        [...v.dosbing_id].forEach((valId) => {
+            if(valId == dosen.find(_dosenId => _dosenId.id == valId).id ){
+                tempDosbing.push(dosen[dosen.findIndex(__dosenId => __dosenId.id == valId)])
+            }
+        })
+        output.push({
+            ...v,
+            data_matkul: tempMatkul,
+            data_dosbing: tempDosbing
+        })
+    })
+
+    return console.log(output)
+}
+
+fullDataMhs();
 
 //10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
 // jika myFunc("Pak Diki"), output ["Asep", "Udin"]
