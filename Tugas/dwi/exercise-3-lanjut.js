@@ -309,5 +309,64 @@ const menambahDetail = () =>{
 // console.log([...mahasiswa])
 
 
+//10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
+// jika myFunc("Pak Diki"), output ["Asep", "Udin"]
+// notes: gunakan dataDummy bulk mahasiswa
+
+
+const cariMahBim = (namaDosen) =>{
+    let dosen = [...dosenN]
+    let mahasiswa = [...mahasiswaA]
+
+    let output = [];
+
+    for (let i = 0; i < mahasiswa.length; i++) {
+         for (let j = 0; j < mahasiswa[i].dosbing_id.length; j++) {
+            for (let k = 0; k < dosen.length; k++) {
+                
+                if(dosen[k].name.toLowerCase() == namaDosen.toLowerCase()){
+                    if (mahasiswa[i].dosbing_id[j] == dosen[k].id) {
+                        output.push(mahasiswa[i].name)
+                    }
+                }           
+            }
+         }     
+    }
+
+    return output;
+}
+
+console.log(cariMahBim("bu Sukma"))
+
+//11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
+// jika myFunc("Dimas"), output 10
+// notes: gunakan dataDummy bulk mahasiswa
+
+const countSks = (namaMahasiswa) =>{
+
+    let mahasiswa = [...mahasiswaA]
+    let matkul = [...matkulL]
+    let output = 0;
+
+    for (let i = 0; i < mahasiswa.length; i++) {
+        for (let j = 0; j < mahasiswa[i].matkul_id.length; j++) {
+            for (let k = 0; k < matkul.length; k++) {
+                
+                if (mahasiswa[i].name.toLowerCase() == namaMahasiswa.toLowerCase()) {
+                    if (matkul[k].id == mahasiswa[i].matkul_id[j]) {
+                        output = output + matkul[k].sks;
+                    }
+                }
+                
+            }
+            
+        }
+        
+    }
+    return output;
+}
+
+
+console.log(countSks("dini"))
 
 
