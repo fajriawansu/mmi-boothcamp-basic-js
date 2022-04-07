@@ -12,8 +12,9 @@ class PlusMethods extends Recipes {
     }
     sortAndShowFoodNameOnly(isAsc){
         //console.log(typeof(this.sortAscByFoodName));
-        const ascData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
-        return ascData?.map(v => v.name);
+        const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
+        
+        return onlyData.nama;
         //3.k PlusMethods.showFoodNameOnly() akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan. ["Ayam Goreng", "Sate Padang", ...]
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -39,4 +40,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAscByFoodName(true));
+console.log(multiFormula.sortAscByFoodName(false));
