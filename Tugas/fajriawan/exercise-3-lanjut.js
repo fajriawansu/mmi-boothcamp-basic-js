@@ -88,3 +88,11 @@ const foodWithIngred = (theIngredients) => {
 //9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
 // menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
 // tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
+
+//10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
+// jika myFunc("Pak Diki"), output ["Asep", "Udin"]
+// notes: gunakan dataDummy bulk mahasiswa
+
+//11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
+// jika myFunc("Dimas"), output 10
+// notes: gunakan dataDummy bulk mahasiswa
