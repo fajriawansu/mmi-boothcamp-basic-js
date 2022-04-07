@@ -30,6 +30,9 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
     searchFoodWith(theIngred, isAsc){
+        //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
+        // kumpulan nama makanan yang mengandung bahan theIngred
+        // jika isAsc = true, dia akan urut ascending, jika false dia descending
         const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
 
         let output = [];
@@ -41,8 +44,13 @@ class PlusMethods extends Recipes {
         })
 
         return output
-        //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
-        // kumpulan nama makanan yang mengandung bahan theIngred
+    }
+    showOnlyFromTo(argIndex1, argIndex2, isAsc){
+        //2.m RecipesFormula.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
+        // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
+        // addnotes: RecipesFormula.showOnlyFromTo(0,10) akan menampilkan 11 data (index 0 sampai 10)
+        // addnotes: jika argIndex1 < 0, akan terbaca sebagai index 0
+        // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
 }
