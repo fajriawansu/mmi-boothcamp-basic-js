@@ -195,3 +195,18 @@ for(f in belajarSort){//untuk array
 for(st of [1,2,3,["d","i","o"]]){ //of untuk string atau array
     console.log(st)
 }
+
+//function
+
+const myObj  = {
+    nama_lengkap : function(lahir){
+        return this.nama+" "+ this.nama_belakang +" alamat "+this.alamat+" tinggal "+this.tinggal+ " lahir "+lahir
+    }
+}
+const myObjMore = {
+    nama : "Dio",
+    nama_belakang : "Harvandy",
+    alamat : "Padang",
+    tinggal : "Jakarta"
+}
+console.log(myObj.nama_lengkap.call(myObjMore, "Balai Selasa"))
