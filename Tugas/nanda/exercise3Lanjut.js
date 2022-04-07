@@ -143,21 +143,22 @@ foodBelowThisMinutes(60);
 // yang selesai <= minutes dan total ingredients <= totalIngredients
 // jika myFunc(60, 5), output ["Ayam Goreng", "Sate Padang", ...]
 // notes: gunakan dataDummy resep
-function myFunct(minutes, totalIngredients){
-    const myObj = [...resepMakanan]
-    let output = [];
-    myObj.forEach((v) => {
-        let tempTime = v.timers;
-        let tempTotal = v.ingredients;
-        if(tempTime.toString().toLowerCase().indexOf(timerMasak.toLowerCase())!=-1 && tempTotal==tempTotal.length){
-            output.push(v.name);
+const durationIngredients = (minutes, totalIngredients) =>{
+    output = [];
+    [...resepMakanan].forEach((v)=>{
+        if(v.timers.reduce((total, value)=> total+value)<=minutes){
+            output.push(v);
         }
-        
+    });
+    let ingredientsNumber = output.filter((value, index)=>{
+        return value.ingredients.length === totalIngredients;
+    });
+    const ingredientsName = ingredientsNumber.map((value,index)=>{
+        return value.name;
     })
-    console.log(output); 
+    return(ingredientsName);
 }
-
-// myFunct(60,5);
+console.log(durationIngredients(60, 3));
 
 //8. buat function contoh myFunc(theIngredients), yang mereturn array resep makanan yang membutuhkan bahan theIngredients
 // jika myFunc("Sugar"), output ["Ayam Goreng", "Sate Padang", ...]
@@ -183,6 +184,40 @@ myFunc5("raisins")
 //9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
 // menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
 // tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
+const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
+const dosen = require("./../fajriawan/dummyData").dosen;
+const matkul = require("./../fajriawan/dummyData").matkul;
+
+const jadwalKuliah = (namaMahasiswa) =>{
+    outputDosen = [];
+    outputMatkul = [];
+    output = [];
+    test = [];
+    [...mahasiswa].forEach((v)=>{
+        let tempName = v.name;
+        if(tempName.toString().toLowerCase().indexOf(namaMahasiswa.toLowerCase())!=-1){
+            outputMatkul.push(v.matkul_id);
+            outputDosen.push(v.dosbing_id);
+        }
+    });
+
+    [...dosen].forEach((v)=>{
+        const tempDosen = v.id;
+        tempDosen.forEach((a)=>{
+            outputDosen.forEach((d)=>{
+                if(a===d){
+                    test.push("samani")
+                }
+            });
+        });
+        
+    });
+
+    return(test);      
+    
+    
+}
+console.log(jadwalKuliah("udin"));
 
 
 //10. buat function contoh myFunc(namaDosen), yang mereturn array mahasiswa yang dibimbing oleh dosen tersebut
