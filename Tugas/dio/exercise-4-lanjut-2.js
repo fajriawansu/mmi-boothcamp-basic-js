@@ -16,14 +16,10 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
         let obj = []
         if(isAsc){
-            obj = this.data.sort((a,b)=> 
-            a.name.toLowerCase() < b.name.toLowerCase() ? -1 : a.name.toLowerCase() > a.name.toLowerCase() ? 1 : 0 
-            ).map((v)=> v.name)
+           obj = this.sortAscByFoodName().map((v)=> v.name) 
         }
         else{
-            obj = this.data.sort((a,b)=> 
-            a.name.toLowerCase() > b.name.toLowerCase() ? -1 : a.name.toLowerCase() < a.name.toLowerCase() ? 1 : 0 
-            ).map((v)=> v.name)
+           obj = this.sortDescByFoodName().map((v)=> v.name) 
         }
         return obj
     }
@@ -34,14 +30,10 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
         let obj = []
         if(isAsc){
-            obj = this.data.filter((v)=> v.name.includes(hasString)).sort((a,b)=> 
-            a.name.toLowerCase() < b.name.toLowerCase() ? -1 : a.name.toLowerCase() > a.name.toLowerCase() ? 1 : 0
-            ).map((v)=> v.name)
+            obj = this.sortAscByFoodName().filter((v)=> v.name.includes(hasString)).map((v)=> v.name)
         }
         else{
-            obj = this.data.filter((v)=> v.name.includes(hasString)).sort((a,b)=> 
-            a.name.toLowerCase() > b.name.toLowerCase() ? -1 : a.name.toLowerCase() < a.name.toLowerCase() ? 1 : 0 
-            ).map((v)=> v.name)
+            obj = this.sortDescByFoodName().filter((v)=> v.name.includes(hasString)).map((v)=> v.name)
         } 
         return obj 
     }
@@ -52,14 +44,10 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
         let obj = []
         if(isAsc){
-            obj = this.data.filter((v)=> v.ingredients.filter((val)=> val.name.includes(theIngred)).length==0).sort((a,b)=> 
-            a.name.toLowerCase() < b.name.toLowerCase() ? -1 : a.name.toLowerCase() > a.name.toLowerCase() ? 1 : 0
-            ).map((v)=> v.name)
+            obj = this.sortAscByFoodName().filter((v)=> v.ingredients.filter((val)=> val.name.includes(theIngred)).length==0).map((v)=> v.name)
         }
         else{
-            obj = this.data.filter((v)=>  v.ingredients.filter((val)=> val.name.includes(theIngred)).length==0).sort((a,b)=> 
-            a.name.toLowerCase() > b.name.toLowerCase() ? -1 : a.name.toLowerCase() < a.name.toLowerCase() ? 1 : 0 
-            ).map((v)=> v.name)
+            obj = this.sortDescByFoodName().filter((v)=> v.ingredients.filter((val)=> val.name.includes(theIngred)).length==0).map((v)=> v.name)
         }
         return obj
     }
@@ -69,14 +57,10 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
         let obj = []
         if(isAsc){
-            obj = this.data.filter((v)=> v.ingredients.filter((val)=> val.name.includes(theIngred)).length>0).sort((a,b)=> 
-            a.name.toLowerCase() < b.name.toLowerCase() ? -1 : a.name.toLowerCase() > a.name.toLowerCase() ? 1 : 0
-            ).map((v)=> v.name)
+            obj = this.sortAscByFoodName().filter((v)=>  v.ingredients.filter((val)=> val.name.includes(theIngred)).length>0).map((v)=> v.name)
         }
         else{
-            obj = this.data.filter((v)=>  v.ingredients.filter((val)=> val.name.includes(theIngred)).length>0).sort((a,b)=> 
-            a.name.toLowerCase() > b.name.toLowerCase() ? -1 : a.name.toLowerCase() < a.name.toLowerCase() ? 1 : 0 
-            ).map((v)=> v.name)
+            obj = this.sortDescByFoodName().filter((v)=>  v.ingredients.filter((val)=> val.name.includes(theIngred)).length>0).map((v)=> v.name)
         }
         return obj
     }
@@ -84,4 +68,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.searchFoodWith("sugar", true));
+console.log(multiFormula.sortAndShowFoodNameOnly(true));
