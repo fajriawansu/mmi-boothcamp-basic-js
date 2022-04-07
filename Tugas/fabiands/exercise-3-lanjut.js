@@ -1,5 +1,3 @@
-const { matkul } = require("../fajriawan/data-bank/dataMahasiswa");
-
 const warna = require("./../fajriawan/dummyData").warna;
 const resep = require("./../fajriawan/dummyData").resep;
 
@@ -161,13 +159,17 @@ console.log(dataLengkap());
 // jika myFunc("Pak Diki"), output ["Asep", "Udin"]
 // notes: gunakan dataDummy bulk mahasiswa
 const mahasiswaDosen = (namaDosen) =>{
-    let arrayMD = dataLengkap();
-    outputNama = [];
-    
-    for(let i = 0; i < arrayMD.length; i++){
-        for(let j = 0; j < arrayMD[i].data_dosen.length; j++){
-            if(arrayMD[i].data_dosen[j].name == namaDosen){
-                outputNama.push(arrayMD[i].name);
+    arrayDosen = [...dosen];
+    arrayMahasiswa = [...mahasiswa];
+    let outputNama = [];
+    for(let i = 0; i < arrayMahasiswa.length; i++){
+        for(let j = 0; j < arrayMahasiswa[i].dosbing_id.length; j++){
+            for(let k = 0; k < arrayDosen.length; k++){
+                if(arrayDosen[k].name == namaDosen){
+                    if(arrayMahasiswa[i].dosbing_id == arrayDosen[k].id){
+                        outputNama.push(arrayMahasiswa[i].name);
+                    }
+                }
             }
         }
     }
