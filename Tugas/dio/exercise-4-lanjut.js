@@ -33,9 +33,12 @@ class Recipes {
         }).map((v)=> v.name)
     }
 }
+module.exports = {
+    MyRecipes: Recipes
+}
 
-const RecipesFormula = new Recipes(dataResep);
+// const RecipesFormula = new Recipes(dataResep);
 
-console.log(RecipesFormula.sortAscByFoodName())
-console.log(RecipesFormula.sortDescByFoodName())
-console.log(RecipesFormula.sortAscByTimeToCook())
+// console.log(RecipesFormula.sortAscByFoodName())
+// console.log(RecipesFormula.sortDescByFoodName())
+// console.log(RecipesFormula.sortAscByTimeToCook())
