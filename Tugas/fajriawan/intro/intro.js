@@ -1,4 +1,4 @@
-const dataDummy = require("./dummyData")
+const dataDummy = require("./../dummyData")
 
 // string datatype
 const fullname = "Fajriawan Sutansa"

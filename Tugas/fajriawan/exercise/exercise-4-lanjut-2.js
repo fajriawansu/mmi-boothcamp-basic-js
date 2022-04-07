@@ -1,5 +1,5 @@
 const Recipes = require("./exercise-4-lanjut").MyRecipes
-const dataDummy = require("./dummyData");
+const dataDummy = require("./../dummyData");
 
 const dataResep = dataDummy.resep
 
