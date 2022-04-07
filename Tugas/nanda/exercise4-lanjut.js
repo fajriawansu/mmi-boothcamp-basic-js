@@ -13,22 +13,24 @@ class Recipes {
     sortAscByFoodName(){
         //2.b RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara ascending
-        let output = [];
-        [...dataResep].forEach((v) => {
-            output.push(v.name);
-        })
-
-        return output.sort();
+        const tempData = [...this.data].sort((a,b) => {
+            let left = a.name.toLowerCase();
+            let right = b.name.toLowerCase();
+            if(left < right) return -1;
+            if(right < left) return 1
+        });
+        return tempData
     }
     sortDescByFoodName(){
         //2.c RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara descending
-        let output = [];
-        [...dataResep].forEach((v) => {
-            output.push(v.name);
-        })
-
-        return output.sort(perbandingan);
+        const tempData = [...this.data].sort((a,b) => {
+            let left = a.name.toLowerCase();
+            let right = b.name.toLowerCase();
+            if(left > right) return -1;
+            if(right > left) return 1
+        });
+        return tempData
     }
     sortAscByTimeToCook(){
         //2.d RecipesFormula.sortAscByTimeToCook() akan mereturn array yang diurukan
@@ -51,6 +53,10 @@ class Recipes {
 function perbandingan(a,b){
     return a-b;
    }
+
+module.exports = {
+    MyRecipes: Recipes
+}
 
 const RecipesFormula = new Recipes(dataResep);
 let testRecipes = Recipes.testMethod();
