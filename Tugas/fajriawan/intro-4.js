@@ -17,5 +17,24 @@ const dataPerOrang = {
     last: "Awan"
 }
 
-console.log(orang.fullName.call(dataPerOrang, "Depok"))
+// console.log(orang.fullName.call(dataPerOrang, "Depok"))
 
+// Js Class
+class Mobil {
+    constructor(name, year){
+        this.namaMobil = name;
+        this.tahunBuat = year
+    }
+
+    static hello(){
+        return "hello"
+    }
+
+    age(){
+        let currentYear = new Date().getFullYear();
+        console.log(currentYear - this.tahunBuat);
+    }
+}
+
+// let mobilku = new Mobil("Honda", 2000);
+console.log(Mobil.hello())
