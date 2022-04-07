@@ -76,6 +76,50 @@ class PlusMethods extends Recipes {
 
 
     }
+
+
+    showOnlyFromTo(argIndex1, argIndex2, isAsc){
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+        //2.m PlusMethods.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
+        // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
+        // addnotes: PlusMethods.showOnlyFromTo(0,10, true) akan menampilkan 11 data (index 0 sampai 10)
+        // addnotes: jika argIndex1 < 0, akan terbaca sebagai index 0
+        // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
+        // adnotes: jika arg2 > arg1 = tetap menampilkan data pada index arg1 sampai arg2
+        // jika isAsc = true, dia akan urut ascending, jika false dia descending
+
+        if (argIndex1 > argIndex2) {
+            let temp;
+            temp = argIndex1;
+            argIndex1 = argIndex2;
+            argIndex2 = temp;
+        }
+
+
+        if (argIndex1 < 0) {
+            argIndex1 = 0;
+        }
+
+        if (argIndex2 > tempData.length - 1) {
+            argIndex2 = tempData.length - 1;
+        }
+
+
+       
+
+        let output = [];
+
+        for (let i = argIndex1; i <= argIndex2; i++) {
+            output.push(tempData[i])
+            
+        }
+        console.log(tempData.length)
+        return output;
+    }
+
+
+
+
     
 }
 
@@ -83,5 +127,7 @@ const multiFormula = new PlusMethods(dataResep);
 
 // console.log(multiFormula.sortAndShowFoodNameOnly(false));
 // console.log(multiFormula.nameIncludes("Curried",true));
-console.log(multiFormula.searchFoodWithout("sugar",true));
-console.log(multiFormula.searchFoodWith("sugar",true));
+// console.log(multiFormula.searchFoodWithout("sugar",true));
+// console.log(multiFormula.searchFoodWith("sugar",true));
+
+console.log(multiFormula.showOnlyFromTo(0,2, false));
