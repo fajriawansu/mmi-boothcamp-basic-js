@@ -17,13 +17,11 @@ const dataPerOrang = {
     last: "Awan"
 }
 
-// console.log(orang.fullName.call(dataPerOrang, "Depok"))
-
 // Js Class
 class Mobil {
     constructor(name, year){
         this.namaMobil = name;
-        this.tahunBuat = year
+        this.tahunBuat = year ? year : 2010
     }
 
     static hello(){
@@ -33,8 +31,19 @@ class Mobil {
     age(){
         let currentYear = new Date().getFullYear();
         console.log(currentYear - this.tahunBuat);
+        return currentYear - this.tahunBuat
     }
 }
 
-// let mobilku = new Mobil("Honda", 2000);
-console.log(Mobil.hello())
+class Model extends Mobil {
+    constructor(brand, year, warna){
+        super(brand, year);
+        this.warnaMobil = warna
+    }
+    show(){
+        return "Mobil ini berumur " + this.age();
+    }
+}
+
+let myCar = new Model("CRV", 2000, "Merah");
+console.log(myCar.show());
