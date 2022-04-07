@@ -17,13 +17,10 @@ class Recipes {
             if(left<right) return-1;
             if(left>right) return 1;
         });
-        const nameAsc = ascData.map((value, index)=>{
-            return {
-                nama: value.name,
-                timer: value.timers
-               }
-        });
-        return nameAsc;
+        // const nameAsc = ascData.map((value, index)=>{
+        //     return value.name
+        // });
+        return ascData;
 
         //2.b RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara ascending
@@ -35,13 +32,10 @@ class Recipes {
             if(left>right) return-1;
             if(left<right) return 1;
         });
-        const nameDesc = descData.map((value, index)=>{
-            return {
-             nama: value.name,
-             timer: value.timers
-            }
-        });
-        return nameDesc;
+        // const nameDesc = descData.map((value, index)=>{
+        //     return value.name
+        // });
+        return descData;
         //2.c RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara descending
     }
@@ -53,10 +47,7 @@ class Recipes {
             if(left>right) return 1;
         });
         const ascTimer = ascTimers.map((value, index)=>{
-            return {
-                nama: value.name,
-                timer: value.timers
-               }
+            return value.name;
         });
         return ascTimer;
         //2.d RecipesFormula.sortAscByTimeToCook() akan mereturn array yang diurukan
@@ -67,9 +58,9 @@ class Recipes {
 
 const RecipesFormula = new Recipes(dataResep);
 
-// console.log(RecipesFormula.sortAscByFoodName());
-//console.log(RecipesFormula.sortDescByFoodName());
-console.log(RecipesFormula.sortAscByTimeToCook());
+//console.log(RecipesFormula.sortAscByFoodName());
+// console.log(RecipesFormula.sortDescByFoodName());
+// console.log(RecipesFormula.sortAscByTimeToCook());
 
 module.exports = {
     MyRecipes: Recipes

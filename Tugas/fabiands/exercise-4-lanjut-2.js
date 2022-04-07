@@ -13,8 +13,11 @@ class PlusMethods extends Recipes {
     sortAndShowFoodNameOnly(isAsc){
         //console.log(typeof(this.sortAscByFoodName));
         const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
-        
-        return onlyData.nama;
+        let output = [];
+        [...onlyData].forEach((v)=>{
+            output.push(v.name);
+        })
+        return output;
         //3.k PlusMethods.showFoodNameOnly() akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan. ["Ayam Goreng", "Sate Padang", ...]
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -27,11 +30,27 @@ class PlusMethods extends Recipes {
     }
     
     searchFoodWithout(theIngred, isAsc){
+        const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+        let output = [];
+        [...onlyData].forEach((v)=>{
+            if(!v.ingredients.some(dataIng => dataIng.name == theIngred)){
+                output.push(v.name)
+            }
+        })
+        return output;
         //3.k PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang tidak mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
     searchFoodWith(theIngred, isAsc){
+        const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+        let output = [];
+        [...onlyData].forEach((v)=>{
+            if(v.ingredients.some(dataIng => dataIng.name == theIngred)){
+                output.push(v.name)
+            }
+        })
+        return output;
         //3.l PlusMethods.searchFoodWithout(theIngred) akan mereturn array yang merupakan
         // kumpulan nama makanan yang mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
@@ -40,4 +59,5 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAscByFoodName(false));
+console.log(multiFormula.sortAndShowFoodNameOnly(false));
+//console.log(multiFormula.searchFoodWith("sugar", true));
