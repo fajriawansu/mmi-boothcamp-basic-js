@@ -118,6 +118,13 @@ console.log(cookIngredients("sugar"));
 //9. buat function contoh myFunc(), yang mereturn array mahasiswa yang 
 // menambah 2 properties baru yaitu "data_matkul" dan "data_dosbing"
 // tiap-tiap elementnya berisi object berdasarkan properties matkul_id dan dosbing_id
-const mataKulliah = require("./../fajriawan/dummyData").matkul;
-const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
-const dosen = require("./../fajriawan/dummyData").dosen;
+// const mataKulliah = require("./../fajriawan/dummyData").matkul;
+// const mahasiswa = require("./../fajriawan/dummyData").mahasiswa;
+// const dosen = require("./../fajriawan/dummyData").dosen;
+
+// let arrayMahasiswa = [];
+// const dataLengkap = () =>{
+//     [...dosen].forEach((v)=>{
+
+//     })
+// }
