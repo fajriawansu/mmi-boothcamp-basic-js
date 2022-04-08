@@ -86,12 +86,120 @@ class Recipes {
 
 
     }
+
+
+    
+    ///////////////tambahan////////////////
+    showNameAndStepsOnly(){
+        //2.e RecipesFormula.showNameAndStepsOnly() akan mereturn array passedInData yang tiap-tiap
+        // elementnya hanya berisi object {name: "blabla", steps: [ ...blablabla ] }
+
+        let temp = {};
+        let output = [];
+
+        for (let i = 0; i < this.data.length; i++) {
+            temp.name = this.data[i].name
+            temp.steps = this.data[i].steps
+            output.push(temp);
+            temp = {};
+        }
+
+        return output;
+
+    }
+    whatShouldICookToday(){
+        //2.f RecipesFormula.whatShouldICookToday() akan mereturn string makanan secara random 
+        let angkaRandom = Math.round(Math.random() * this.data.length);
+        let output;
+        
+        for (let i = 0; i < this.data.length; i++) {
+            if (i == angkaRandom) {
+                output = this.data[i].name
+            }     
+        }
+
+        return output;
+    }
+    searchByFoodName(theName){
+        //2.g RecipesFormula.searchByFoodName(nameFood) akan mereturun object element passedInData
+        // yang memiliki nama theName
+
+        let output = {};
+
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i].name.toLowerCase() == theName.toLowerCase()) {
+                output = this.data[i]
+            }    
+        }
+
+        return output;
+
+    }
+    isThisFoodNeedOneHour(theName){
+        //2.h RecipesFormula.isThisFoodNeedOneHour(theName) akan mereturun boolean (true/false)
+        // true jika makanan dimasak >= 1 jam, false jika < 1 jam
+
+        let output;
+        let time = 0;
+
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i].name.toLowerCase() == theName.toLowerCase()) {
+                for (let j = 0; j < this.data[i].timers.length; j++) {
+                    time = time + this.data[i].timers[j]
+                }
+            }
+            
+            if (time >= 60) {
+                output = true;
+            }else if(time < 60){
+                output = false;
+            }
+        }
+
+        return output;
+
+    }
+    howToMakeFood(theName){
+        //2.i RecipesFormula.howToMakeFood(theName) akan mereturn array step-step untuk membuat
+        // makanan bernama theName
+
+        let output ;
+
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i].name.toLowerCase() == theName.toLowerCase()) {
+                output = this.data[i].steps
+            }      
+        }
+        return output;
+
+    }
+    howLongToMakeFood(theName){
+        //2.j RecipesFormula.howLongToMakeFood(theName) akan mereturn number yang merupakan
+        // lamanya waktu (dalam menit) untuk membuat makanan bernama theName
+
+        let output = 0;
+
+        for (let i = 0; i < this.data.length; i++) {
+           
+            if (this.data[i].name.toLowerCase() == theName.toLowerCase()) {
+                for (let j = 0; j < this.data[i].timers.length; j++) {
+                    output = output + this.data[i].timers[j]
+                }
+            }          
+        }
+
+        return output;
+
+
+    }
+    
 }
 
 const RecipesFormula = new Recipes(dataResep);
 
 // console.log(RecipesFormula.sortAscByFoodName())
 // console.log(RecipesFormula.sortAscByTimeToCook())
+console.log(RecipesFormula.howLongToMakeFood("Curried Lentils and RIce"));
 
 module.exports = {
     MyRecipes: Recipes
