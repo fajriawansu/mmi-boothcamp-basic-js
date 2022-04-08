@@ -96,12 +96,12 @@ class Recipes {
             }
         }
         let timer = 0;
-        for(let i = 0; i < output.length; i++){
+        for(let i = 0; i < output2[0].length; i++){
             timer = timer + output2[0][i];
         }
 
         let output3 = "";
-        if(timer<60){
+        if(timer>=60){
             output3 = true;
         }
         else{
