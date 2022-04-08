@@ -7,11 +7,11 @@ const greatMovies = require("./../fajriawan/dummyData").greatMovies;
 // buat callback function contoh myCallback(cbData) akan mereturn film-film yang didirect oleh 
 // directorName pada function myFunction(directorName, cbFunction)
 //contoh: jika myFunction("Raditya Dika", myCallback), myCallback() akan memiliki return ["Hangout", "Kambing Jantan", "The Boys"]
-function printDirector(cbData){
+const printDirector = (cbData) =>{
     console.log(cbData);
 }
 
-function directorFilter(directorName, nextFunction){
+const directorFilter = (directorName,nextFunction) => {
     let movieDirect = greatMovies.filter((value, index) => {
         return value.director === directorName;
     });
@@ -27,11 +27,10 @@ directorFilter("Charles Chaplin", printDirector);
 //  buat callback function contoh myCallback(cbData) dimana mereturn string film genre terbanyak
 // cbData adalah arguments berupa object, contoh: {Action: 3, Drama: 2, Crime: 1, Thriller: 4} 
 // notes: banyaknya properties object bergantung pada banyaknya jenis genre yang ada
-function printGenre(cbData){
+const printGenre = (cbData) =>{
     console.log(cbData);
 }
-
-function genreCount(nextFunction){
+const genreCount = (nextFunction) =>{
     let output = {};
 
     [...greatMovies].forEach((v)=>{
@@ -55,11 +54,11 @@ genreCount(printGenre);
 // jika yang terbanyak adalah film thriller akan mereturn string "Jangan rekomendasikan film kesukaanmu saja"
 // jika yang terbanyak adalah film fantasy akan mereturn string "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku"
 // jika yang terbanyak adalah selain 4 genre di atas akan mereturn "Hmm, akan aku catat dulu"
-function genreRecom(cbData){
+const genreRecom = (cbData) =>{
     console.log(cbData);
 }
 
-function mostGenre(nextFunction){
+const mostGenre = (nextFunction) =>{
     let output = {};
 
     [...greatMovies].forEach((v)=>{
@@ -79,7 +78,7 @@ function mostGenre(nextFunction){
     sortGenre.sort(function(a,b){
         return b[1]-a[1];
     });
-    
+
     let dataKirim ="";
     if(sortGenre[0][0]== "Action"){
         dataKirim = "Aku Suka List Rekomendasimu";
