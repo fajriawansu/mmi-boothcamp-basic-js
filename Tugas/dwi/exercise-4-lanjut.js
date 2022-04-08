@@ -6,7 +6,8 @@ class Recipes {
     }
 
     static testMethod(){
-        //2.a Recipes.showData() akan mereturn string "Class running properly"
+        //2.a Recipes.testMethod() akan mereturn string "Class running properly"
+        return "Class running properly"
     }
 
     sortAscByFoodName(){
