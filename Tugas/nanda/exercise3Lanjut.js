@@ -231,7 +231,6 @@ const fullDosen = (namaDosen) => {
 
     })
     
-    // return output;
     const myObj = [...mahasiswa]
     myObj.forEach((v) => {
         let string_id = output.join()
@@ -247,28 +246,32 @@ const fullDosen = (namaDosen) => {
 console.log(fullDosen("Pak Gun"));
 
 
-
 //11. buat function contoh myFunc(namaMahasiswa), yang mereturn number jumlah sks yang diambil
 // jika myFunc("Dimas"), output 10
 // notes: gunakan dataDummy bulk mahasiswa
 const fullsksMhs = (namaMahasiswa) => {
     let output = [];
     let tempsks = [];
+    let hasil = 0;
     [...mahasiswa].forEach((v) => { 
         let namaSiswa = v.name;
         if(namaSiswa.toString().toLowerCase().indexOf(namaMahasiswa.toLowerCase())!=-1){
-            output.push(v.matkul_id);
+            output = v.matkul_id;
         }
-        
-        [...output].forEach((valId) => {
-            if(valId == matkul.find(_dosenId => _dosenId.id == valId).id ){
-                tempsks.push(matkul[matkul.findIndex(__dosenId => __dosenId.id == valId)].sks)
-            }
-        })
 
 
     })
-    return tempsks;
+    
+    console.log(output, 'output');
+    [...output].forEach((valId) => {
+        if(valId == matkul.find(_dosenId => _dosenId.id == valId).id ){
+            tempsks.push(matkul[matkul.findIndex(__dosenId => __dosenId.id == valId)].sks)
+        }
+    })
+    for(i=0;i<tempsks.length;i++){
+        hasil += tempsks[i];
+    }
+    return hasil;
 }
 
 console.log(fullsksMhs("Udin"));
