@@ -77,3 +77,7 @@ class Recipes {
 const RecipesFormula = new Recipes(resep);
 
 console.log(RecipesFormula.sortAscByTimeToCook());
+
+module.exports = {
+    MyRecipes : Recipes
+}
