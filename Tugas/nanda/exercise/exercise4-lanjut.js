@@ -76,19 +76,70 @@ class Recipes {
         searchByFoodName(theName){
             //2.g RecipesFormula.searchByFoodName(nameFood) akan mereturun object element passedInData
             // yang memiliki nama theName
+            let output = [];
+            [...dataResep].forEach((val) => {
+                let tempName = v.name;
+                if(tempName.toString().toLowerCase().indexOf(theName.toLowerCase())!=-1){
+                    output.push(v.name);
+                }
+            })
+            return output;
             
         }
         isThisFoodNeedOneHour(theName){
             //2.h RecipesFormula.isThisFoodNeedOneHour(theName) akan mereturun boolean (true/false)
-            // true jika makanan dimasak >= 1 jam, false jika < 1 jam
+            // true jika makanan dimasak >= 1 jam, false jika < 1 jam   
+            const obj = [...this.data]
+            let output = []
+            for(let i=0;i<obj.length;i++){
+                if(obj[i].name == theName){
+                    output.push(obj[i].timers)
+                }
+            }
+
+            let time = 0;
+            for(let i=0;i<output[0].length;i++){
+                time = time + output[0][i]
+            }
+
+            let output1 = "";
+            if(time>=60){
+                output1 =  "true";
+            }else{
+                output1 = "false"
+            }
+            return output1;
+
         }
         howToMakeFood(theName){
             //2.i RecipesFormula.howToMakeFood(theName) akan mereturn array step-step untuk membuat
             // makanan bernama theName
+            const obj = [...this.data]
+            let output = []
+            for(let i=0;i<obj.length;i++){
+                if(obj[i].name == theName){
+                    output.push(obj[i].steps)
+                }
+            }
+            return output;
+
         }
         howLongToMakeFood(theName){
             //2.j RecipesFormula.howLongToMakeFood(theName) akan mereturn number yang merupakan
             // lamanya waktu (dalam menit) untuk membuat makanan bernama theName
+            const obj = [...this.data]
+            let output = []
+            for(let i=0;i<obj.length;i++){
+                if(obj[i].name == theName){
+                    output.push(obj[i].timers)
+                }
+            }
+
+            let time = 0;
+            for(let i=0;i<output[0].length;i++){
+                time = time + output[0][i]
+            }
+            return time;
         }
 }
 
