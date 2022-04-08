@@ -12,7 +12,15 @@ const resep = require("./../fajriawan/dummyData").resep;
 // lanjut ---
 // jika arguments lebih dari 1 tipe return object, banyaknya properties sesuai banyaknya tipe, valuenya adalah jumlah masing2 tipe
 // contoh: {"strType": 1, "numType": 2} atau {"strType": 1, "arrType": 4}
-
+function typeCheck(){
+    let obj = {};
+    for (x in arguments){
+        Array.isArray(arguments[x]) == true ? obj.hasOwnProperty("array") ? obj["array"]++ : obj["array"] = 1 : obj.hasOwnProperty(typeof(arguments[x])) ? obj[typeof(arguments[x])]++ : obj[typeof(arguments[x])] = 1
+    }
+    obj = Object.keys(obj).length == 1? "All Argument is "+ Object.keys(obj) : obj
+    return obj;
+}
+console.log(typeCheck("a","b","c",1,{"a":3}, [1,2], [2,3], {"a":3}))
 //basic js map filter data banyak
 
 //3. buat function contoh myFunc(hexcode), yang mereturn array data hex-hex yang mengandung arguments hexcode
