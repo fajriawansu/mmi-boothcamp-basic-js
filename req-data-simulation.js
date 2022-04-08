@@ -5,7 +5,16 @@ const {
   matkul,
   resep,
   warna,
+  item,
 } = require("./Tugas/fajriawan/dummyData");
+
+const getItems = (str) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+       resolve(item);
+    }, 1000);
+  });
+};
 
 const getMovies = (str) => {
   return new Promise((resolve, reject) => {
@@ -56,6 +65,7 @@ const getWarna = (str) => {
 };
 
 const Service = {
+    getItems,
     getMovies,
     getMahasiswa,
     getDosen,
