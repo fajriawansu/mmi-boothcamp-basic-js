@@ -1,4 +1,4 @@
-const dataDummy = require("./dummyData")
+const dataDummy = require("./../dummyData")
 
 // string datatype
 const fullname = "Fajriawan Sutansa"
@@ -250,8 +250,6 @@ const newFilter = member.filter((value, index) => {
 // console.log(newFilter);
 
 const dummyWarga = dataDummy.warga;
-
-
 
 // console.log(dummyWarga)
 

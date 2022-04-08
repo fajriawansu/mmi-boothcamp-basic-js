@@ -1,4 +1,4 @@
-const warna = require("./dummyData").warna;
+const warna = require("./../dummyData").warna;
 
 //basic js map filter data banyak
 
@@ -32,3 +32,4 @@ const warna = require("./dummyData").warna;
 // notes: angka-angka yang ditotal berarti: 5,7,10,14,15,20,21,25,28,dst
 
 console.log(warna[0]);
+

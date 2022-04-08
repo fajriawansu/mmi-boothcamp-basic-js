@@ -98,3 +98,20 @@ const arrowFunc = (a,b) => {
 }
 
 // arrowFunc(2,4);
+
+// arguments berlaku jika function ditulis sebagai declaration
+function myFuncArr(){
+  for(let i = 0; i < arguments.length; i++){
+    console.log(arguments[i])
+  }
+  // return console.log(arguments);
+}
+
+// arguments tidak berlaku jika function ditulis sebagai expression
+const myExpFuncArr = () => {
+  for(let i = 0; i < arguments.length; i++){
+    console.log(arguments[i])
+  }
+}
+
+myExpFuncArr(1,2,3,4,5,6,9)
