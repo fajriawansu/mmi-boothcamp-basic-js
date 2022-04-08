@@ -66,4 +66,4 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.searchFoodWithout("sugar",true));
+console.log(multiFormula.showOnlyFromTo(0,2,true));
