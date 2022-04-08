@@ -18,7 +18,7 @@ const cbReqMovies = (data) => {
     console.log(output)
 }
 
-requestMovies(cbReqMovies); // akan mereturn ['The Shawshank Redemption', 'The Godfather', ...]
+// requestMovies(cbReqMovies); // akan mereturn ['The Shawshank Redemption', 'The Godfather', ...]
 
 // di bawah ini gunakan dummy service getItems
 //////////////////////////////////////////////
@@ -36,6 +36,23 @@ requestMovies(cbReqMovies); // akan mereturn ['The Shawshank Redemption', 'The G
 // callback harus mereturn output berupa array, tiap element adalah object 2 properties
 // yaitu "nama_item" dan "penjual"
 // contoh: [{nama_item: "Jaket", penjual: "PT AAA"}, {nama_item: "Baju", penjual: "PT BBB"}, ...]
+
+const requestItems = async (cbResp) => {
+    const respData = await Service.getItems();
+    cbResp(respData)
+}
+
+const myCbMappingItem = (data) => {
+    const outData = [...data].map((v) => {
+        return {
+            nama_item: v.name,
+            penjual: v.type === "BARANG" ? v.barang.seller : v.jasa.seller
+        }
+    })
+    console.log(outData)
+}
+
+requestItems(myCbMappingItem)
 
 //5. buat async function yang memiliki callback, contoh myFunction(cbFunction),
 // mengirim data ke callback
