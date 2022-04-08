@@ -55,9 +55,25 @@ class PlusMethods extends Recipes {
         // kumpulan nama makanan yang mengandung bahan theIngred
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
+
+    showOnlyFromTo(argIndex1, argIndex2, isAsc){
+        const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+        let output = [];
+        [...onlyData].forEach((v)=>{
+            output.push(v.name);
+        })
+        return output.slice(argIndex1,argIndex2);
+        //2.m RecipesFormula.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
+        // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
+        // addnotes: RecipesFormula.showOnlyFromTo(0,10) akan menampilkan 11 data (index 0 sampai 10)
+        // addnotes: jika argIndex1 < 0, akan terbaca sebagai index 0
+        // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
+        // jika isAsc = true, dia akan urut ascending, jika false dia descending
+    }
 }
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.sortAndShowFoodNameOnly(false));
+console.log(multiFormula.showOnlyFromTo(0,4,true));
+//console.log(multiFormula.sortAndShowFoodNameOnly(false));
 //console.log(multiFormula.searchFoodWith("sugar", true));
