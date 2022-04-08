@@ -210,3 +210,55 @@ const myObjMore = {
     tinggal : "Jakarta"
 }
 console.log(myObj.nama_lengkap.call(myObjMore, "Balai Selasa"))
+
+//Async
+function testAsync(){
+    console.log("satu")
+    setTimeout(()=>{
+        console.log('setTimeout function testAsync') // akan muncul selama 2 detik
+    }, 2000)
+    console.log("tiga")
+}
+testAsync()
+
+function myCallback(nilai){
+    console.log("nilai : "+nilai)
+}
+function myCalculator(num1,num2,callBackFunction){
+    let sum  = num1 + num2
+    callBackFunction(sum)
+}
+myCalculator(5,5,myCallback)
+
+//============================
+function myResult(result){
+    console.log("result is : "+result)
+}
+let myPromise = new Promise(function(myResolve, myReject){
+    let x = 1;
+    x==0?myResolve("OK myPromise") : setTimeout(()=>myReject("ERROR myPromise"),3000)
+})
+
+myPromise.then(
+    function(value){ 
+        console.log("panggil myResult()")
+        myResult(value)
+    },
+    function(error){
+         myResult(error)  
+    }
+)
+//====================
+async function myAsyncFunc(){
+    return "hello myAsyncFunc"
+}
+myAsyncFunc().then( (value)=>{myResult(value)}, (error)=>{myResult(error)})
+
+async function myAwait(){
+    let myProms = new Promise(function(resolve){
+        setTimeout(()=> resolve("MyAwait resolve"), 5000)
+    }) 
+    const x = await myProms
+    console.log("myAwait result in x await myPromise : "+x) 
+}
+myAwait()
