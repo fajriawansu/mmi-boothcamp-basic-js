@@ -1,7 +1,7 @@
 module.exports = {
     item: [
         {
-            nama: "Minyak Pilma",
+            name: "Minyak Pilma",
             price: 40000,
             qty: 4,
             type: "BARANG",
