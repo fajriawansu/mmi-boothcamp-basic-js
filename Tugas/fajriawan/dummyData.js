@@ -3,6 +3,7 @@ const dataWarna = require("./data-bank/dataWarna").color;
 const dataMahasiswa = require("./data-bank/dataMahasiswa").mahasiswa;
 const dataMatkul = require("./data-bank/dataMahasiswa").matkul;
 const dataDosen = require("./data-bank/dataMahasiswa").dosen;
+const dataItem = require("./data-bank/itemList").item;
 
 module.exports = {
     resep: dataResep,
@@ -10,6 +11,7 @@ module.exports = {
     mahasiswa: dataMahasiswa,
     matkul: dataMatkul,
     dosen: dataDosen,
+    item: dataItem,
     warga: [
       { nama: "Budi", umur: 32 },
       { nama: "Asep", umur: 12 },
