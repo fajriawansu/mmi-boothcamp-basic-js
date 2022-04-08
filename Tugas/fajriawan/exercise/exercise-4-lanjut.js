@@ -33,7 +33,29 @@ class Recipes {
     }
 
     ///////////////tambahan////////////////
-
+    showNameAndStepsOnly(){
+        //2.e RecipesFormula.showNameAndStepsOnly() akan mereturn array passedInData yang tiap-tiap
+        // elementnya hanya berisi object {name: "blabla", steps: [ ...blablabla ] }
+    }
+    whatShouldICookToday(){
+        //2.f RecipesFormula.whatShouldICookToday() akan mereturn string makanan secara random 
+    }
+    searchByFoodName(theName){
+        //2.g RecipesFormula.searchByFoodName(nameFood) akan mereturun object element passedInData
+        // yang memiliki nama theName
+    }
+    isThisFoodNeedOneHour(theName){
+        //2.h RecipesFormula.isThisFoodNeedOneHour(theName) akan mereturun boolean (true/false)
+        // true jika makanan dimasak >= 1 jam, false jika < 1 jam
+    }
+    howToMakeFood(theName){
+        //2.i RecipesFormula.howToMakeFood(theName) akan mereturn array step-step untuk membuat
+        // makanan bernama theName
+    }
+    howLongToMakeFood(theName){
+        //2.j RecipesFormula.howLongToMakeFood(theName) akan mereturn number yang merupakan
+        // lamanya waktu (dalam menit) untuk membuat makanan bernama theName
+    }
 }
 
 const RecipesFormula = new Recipes(dataResep);
