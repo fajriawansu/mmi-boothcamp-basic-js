@@ -1,4 +1,4 @@
-const warna = require("./../fajriawan/dummyData").warna;
+const warna = require("../../fajriawan/dummyData").warna;
 
 
 //basic js map filter data banyak

@@ -1,3 +1,0 @@
-const myCallback = (String) => {
-    
-}
