@@ -23,7 +23,7 @@ const cbFilterDirector = (dirName, data, ngapain) => {
     }
 }
 
-filterByDirector("Frank Darabont", (a,b) => cbFilterDirector(a,b, "tahun_doang"));
+// filterByDirector("Frank Darabont", (a,b) => cbFilterDirector(a,b, "tahun_doang"));
 
 //2. buat function 1 parameters sebagai callback contoh myFunction(cbFunction), 
 //  buat callback function contoh myCallback(cbData) dimana mereturn string film genre terbanyak
@@ -38,3 +38,60 @@ filterByDirector("Frank Darabont", (a,b) => cbFilterDirector(a,b, "tahun_doang")
 // jika yang terbanyak adalah film thriller akan mereturn string "Jangan rekomendasikan film kesukaanmu saja"
 // jika yang terbanyak adalah film fantasy akan mereturn string "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku"
 // jika yang terbanyak adalah selain 4 genre di atas akan mereturn "Hmm, akan aku catat dulu"
+
+function countByGenre(cbFunction){
+    // object dengan properties tiap-tiap nama genre, value nya adalah banyaknya genre
+    let allGenre = {};
+    // {
+    //     Crime: 14,
+    //     Drama: 35,
+    //     Action: 8,
+    //     Thriller: 10,
+    //     Biography: 3,
+    //     History: 1,
+    //     Adventure: 13,
+    //     Fantasy: 8,
+    //     Western: 2,
+    //     Comedy: 6,
+    //     Romance: 4,
+    //     'Sci-Fi': 8,
+    //     Mystery: 7,
+    //     Family: 4,
+    //     War: 4,
+    //     Animation: 2,
+    //     Horror: 1,
+    //     Music: 2,
+    //     Musical: 1
+    //   }
+
+    [...dummyData.greatMovies].forEach((val) => {
+        val.genre.forEach((genreName) => {
+            if(allGenre.hasOwnProperty(genreName)){
+                allGenre[genreName] ++
+            } else {
+                allGenre[genreName] = 1
+            }
+        })
+    })
+
+    // cari properties yg valuenya paling banyak
+    let terbanyak = { nama: "", jumlah: 0 }
+
+    for(let x in allGenre){
+        if(allGenre[x] > terbanyak.jumlah){
+            terbanyak = { nama: x, jumlah: allGenre[x] }
+        }
+    }
+
+    cbGenre(terbanyak.nama)
+}
+
+const cbGenre = (str) => {
+    let strOut = "";
+    if(str == 'Drama'){
+        strOut = "Aku tidak suka list rekomendasimu"
+    }
+    return console.log(strOut)
+}
+
+countByGenre(cbGenre)
