@@ -54,10 +54,101 @@ class Recipes {
         // berdasarkan lama memasak secara ascending
         // output hanya nama, contoh: ["Ikan Bakar", "Nila Goreng", ...]
     }
+    showNameAndStepsOnly(){
+        const output = [...this.data].map((value,index)=>{
+            return{
+                nama: value.name,
+                steps: value.steps
+            }  
+        })
+        return output;
+        //2.e RecipesFormula.showNameAndStepsOnly() akan mereturn array passedInData yang tiap-tiap
+        // elementnya hanya berisi object {name: "blabla", steps: [ ...blablabla ] }
+    }
+    whatShouldICookToday(){
+        const outputTemp = [...this.data]
+        const output = outputTemp[Math.floor(Math.random()*outputTemp.length)];
+        return output.name;
+        //2.f RecipesFormula.whatShouldICookToday() akan mereturn string makanan secara random 
+    }
+    searchByFoodName(theName){
+        const output = [];
+        [...this.data].forEach((v)=>{
+            output.push(v.name);
+        });
+        let output2 = [];
+        for(let i = 0; i < output.length; i++){
+            if(output[i] == theName){
+                output2.push(output[i]);
+            }
+        }
+        return output2;
+        //2.g RecipesFormula.searchByFoodName(nameFood) akan mereturun object element passedInData
+        // yang memiliki nama theName        
+    }
+    isThisFoodNeedOneHour(theName){
+        const output = [...this.data];
+        let output2 = [];
+        for(let i = 0; i < output.length; i++){
+            if(output[i].name == theName){
+                output2.push(output[i].timers)
+                // output2.push(output[i].timers);
+            }
+        }
+        let timer = 0;
+        for(let i = 0; i < output.length; i++){
+            timer = timer + output2[0][i];
+        }
+
+        let output3 = "";
+        if(timer<60){
+            output3 = true;
+        }
+        else{
+            output3 = false;
+        }
+        return output3;
+        //2.h RecipesFormula.isThisFoodNeedOneHour(theName) akan mereturun boolean (true/false)
+        // true jika makanan dimasak >= 1 jam, false jika < 1 jam
+    }
+    howToMakeFood(theName){
+        const output = [...this.data];
+        
+        let output2 = [];
+        for(let i = 0; i < output.length; i++){
+            if(output[i].name == theName){
+                output2.push(output[i]);
+            }
+        }
+        let output3 = [];
+        output3.push(output2[0].steps);
+        return output3
+        //2.i RecipesFormula.howToMakeFood(theName) akan mereturn array step-step untuk membuat
+        // makanan bernama theName
+    }
+    howLongToMakeFood(theName){
+        const output = [...this.data];
+        let output2 = [];
+        for(let i = 0; i < output.length; i++){
+            if(output[i].name == theName){
+                output2.push(output[i].timers)
+                // output2.push(output[i].timers);
+            }
+        }
+        let timer = 0;
+        for(let i = 0; i < output.length; i++){
+            timer = timer + output2[0][i];
+        }
+
+        return timer + " minutes";
+        //2.j RecipesFormula.howLongToMakeFood(theName) akan mereturn number yang merupakan
+        // lamanya waktu (dalam menit) untuk membuat makanan bernama theName
+    }
 }
 
 const RecipesFormula = new Recipes(dataResep);
 
+console.log(RecipesFormula.howLongToMakeFood("Curried chicken salad"));
 //console.log(RecipesFormula.sortAscByFoodName());
 // console.log(RecipesFormula.sortDescByFoodName());
 // console.log(RecipesFormula.sortAscByTimeToCook());

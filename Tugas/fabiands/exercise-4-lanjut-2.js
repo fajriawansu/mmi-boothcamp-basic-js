@@ -74,13 +74,15 @@ class PlusMethods extends Recipes {
         [...onlyData].forEach((v)=>{
             output.push(v.name);
         })
-        if(argIndex1 < 0){
-            argIndex1 = 0;
+        let firstIndex = argIndex1 < argIndex2? argIndex1 : argIndex2;
+        let secondIndex = argIndex1 < argIndex2? argIndex2 : argIndex1;
+        if(firstIndex < 0){
+            firstIndex = 0;
         }
-        if(argIndex2 > output.length){
-            argIndex2 = output.length;
+        if(secondIndex > output.length){
+            secondIndex = output.length;
         }
-        return output.slice(argIndex1,argIndex2);
+        return output.slice(firstIndex,secondIndex);
         //2.m RecipesFormula.showOnlyFromTo(argIndex1, argIndex2) akan mereturn array passedInData
         // dimulai dari index ke-argIndex1 sampai index ke-argIndex2
         // addnotes: RecipesFormula.showOnlyFromTo(0,10) akan menampilkan 11 data (index 0 sampai 10)
@@ -92,7 +94,7 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.nameIncludes("salad",true))
-//console.log(multiFormula.showOnlyFromTo(-2,100,true));
+//console.log(multiFormula.nameIncludes("salad",true))
+console.log(multiFormula.showOnlyFromTo(8,-40,true));
 //console.log(multiFormula.sortAndShowFoodNameOnly(false));
 //console.log(multiFormula.searchFoodWith("sugar", true));
