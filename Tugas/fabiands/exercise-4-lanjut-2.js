@@ -23,6 +23,18 @@ class PlusMethods extends Recipes {
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
     }
     nameIncludes(hasString, isAsc){
+        const onlyData = isAsc?[...this.sortAscByFoodName()] : [...this.sortDescByFoodName()]
+        let output = [];
+        [...onlyData].forEach((v)=>{
+            output.push(v.name);
+        })
+        let output2 = [];
+        for(let i = 0; i < output.length; i++){
+            if(output[i].includes(hasString)){
+                output2.push(output[i]);
+            }
+        }
+        return output2;
         //3.k PlusMethods.nameIncludes(hasString) akan mereturn array yang merupakan
         // kumpulan nama makanan yang sudah diurutkan yang mengandung string "hasString"
         // contoh ["Ayam Goreng", "Ayam Bumbu Menteaga", "Sate Ayam", ...]
@@ -80,6 +92,7 @@ class PlusMethods extends Recipes {
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.showOnlyFromTo(-2,100,true));
+console.log(multiFormula.nameIncludes("salad",true))
+//console.log(multiFormula.showOnlyFromTo(-2,100,true));
 //console.log(multiFormula.sortAndShowFoodNameOnly(false));
 //console.log(multiFormula.searchFoodWith("sugar", true));
