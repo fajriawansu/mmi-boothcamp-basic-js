@@ -24,7 +24,13 @@ class Recipes {
     sortDescByFoodName(){
         //2.c RecipesFormula.sortByFoodName() akan mereturn array passedInData yang diurutkan
         // berdasarkan nama makanan secara descending
-        return []
+        const tempData = [...this.data].sort((a,b) => {
+            let left = a.name.toLowerCase();
+            let right = b.name.toLowerCase();
+            if(left > right) return -1;
+            if(right > left) return 1
+        });
+        return tempData
     }
     sortAscByTimeToCook(){
         //2.d RecipesFormula.sortAscByTimeToCook() akan mereturn array yang diurukan

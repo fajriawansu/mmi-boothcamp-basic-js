@@ -53,9 +53,16 @@ class PlusMethods extends Recipes {
         // addnotes: jika argIndex1 > index data terakhir, otomatis terbaca sebagai index terakhir
         // adnotes: jika arg2 > arg1 = tetap menampilkan data pada index arg1 sampai arg2
         // jika isAsc = true, dia akan urut ascending, jika false dia descending
+        const tempData = isAsc ? [...this.sortAscByFoodName()] : [...this.sortDescByFoodName()];
+        let firstIdx = argIndex1 < argIndex2 ? argIndex1 : argIndex2;
+        let secondIdx = argIndex1 < argIndex2 ? argIndex2 : argIndex1;
+        let usedIdx = firstIdx < 0 ? 0 : firstIdx;
+        let usedIdx2 = secondIdx > tempData.length ? tempData.length-1 : secondIdx
+
+        return tempData.slice(usedIdx, usedIdx2+1);
     }
 }
 
 const multiFormula = new PlusMethods(dataResep);
 
-console.log(multiFormula.searchFoodWith("sugar", true));
+console.log(multiFormula.showOnlyFromTo(0, 2, true));
