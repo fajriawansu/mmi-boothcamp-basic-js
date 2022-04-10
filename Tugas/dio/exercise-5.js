@@ -55,22 +55,18 @@ function myFunc1(cbFunction){
 // jika yang terbanyak adalah film fantasy akan mereturn string "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku"
 // jika yang terbanyak adalah selain 4 genre di atas akan mereturn "Hmm, akan aku catat dulu"
 function myCallback2(name){
-    // let genre = ""
-    // let moviesSum = 0
-    // for(x in name){
-    //     if(moviesSum<name[x]){
-    //         moviesSum = name[x]
-    //         genre = x
-    //     }
-    // }
-    const jumlahFilm = [...greatMovies].filter((v)=> v.genre.some((val)=> val==name)).length
-    return name == "Action"?"Aku suka list rekomendasimu "+jumlahFilm:
-           name=="Drama"?"Aku tidak suka list rekomendasimu "+jumlahFilm:
-           name == "Thriller"?"Jangan rekomendasikan film kesukaanmu saja "+jumlahFilm:
-           name == "Fantasy"? "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku "+jumlahFilm:"Hmm, akan aku catat dulu"
+    let genre = ""
+    let moviesSum = 0
+    for(x in name){
+        if(moviesSum<name[x]){
+            moviesSum = name[x]
+            genre = x
+        }
+    }
+    return genre == "Action"?"Aku suka list rekomendasimu":
+           genre == "Drama"?"Aku tidak suka list rekomendasimu":
+           genre == "Thriller"?"Jangan rekomendasikan film kesukaanmu saja":
+           genre == "Fantasy"? "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku":"Hmm, akan aku catat dulu"
 
 }
-function myFunc2(cbFunction){
-    return cbFunction("Drama")
-}
-console.log(myFunc2(myCallback2))
+console.log(myFunc1(myCallback2))
