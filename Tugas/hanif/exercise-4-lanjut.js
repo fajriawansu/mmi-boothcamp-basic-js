@@ -105,8 +105,7 @@ class Recipes {
 
     myArray.forEach((val, index) => {
       let tempNama = val.name;
-      // console.log(tempNama)
-      if (tempNama == theName) {
+      if (tempNama.toLowerCase().includes(theName.toLowerCase())) {
         output.push(val.name);
       }
     });
@@ -122,7 +121,7 @@ class Recipes {
     myArray.forEach((val, index) => {
       let tempName = val.name;
       let tempWaktu = val.timers;
-      if (tempName == theName) {
+      if (tempName.toLowerCase() == theName.toLowerCase()) {
         if (tempWaktu.reduce((total, waktu) => total + waktu >= 60)) {
           output = true;
         } else {
@@ -136,37 +135,37 @@ class Recipes {
   howToMakeFood(theName) {
     //2.i RecipesFormula.howToMakeFood(theName) akan mereturn array step-step untuk membuat
     // makanan bernama theName
-    const myArray = [...this.data]
-    let output = ""
+    const myArray = [...this.data];
+    let output = "";
 
     myArray.forEach((val, index) => {
-      let tempName = val.name
-      if (tempName == theName) {
-        output = val.steps
+      let tempName = val.name;
+      if (tempName.toLowerCase() == theName.toLowerCase()) {
+        output = val.steps;
       }
-    })
-    return output
+    });
+    return output;
   }
 
   howLongToMakeFood(theName) {
     //2.j RecipesFormula.howLongToMakeFood(theName) akan mereturn number yang merupakan
     // lamanya waktu (dalam menit) untuk membuat makanan bernama theName
-    const myArray = [...this.data]
-    let output = ""
+    const myArray = [...this.data];
+    let output = "";
 
     myArray.forEach((val, index) => {
-      let tempName = val.name
-      if(tempName == theName) {
-        output = val.timers.reduce((total, waktu) => output = total + waktu)
+      let tempName = val.name;
+      if (tempName.toLowerCase() == theName.toLowerCase()) {
+        output = val.timers.reduce((total, waktu) => (output = total + waktu));
       }
-    })
-    return output
+    });
+    return output;
   }
 }
 
 const RecipesFormula = new Recipes(resep);
 
-console.log(RecipesFormula.searchByFoodName("Curried Lentils and Rice"));
+console.log(RecipesFormula.howLongToMakeFood("Roasted Asparagus"));
 
 module.exports = {
   MyRecipes: Recipes,

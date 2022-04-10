@@ -23,19 +23,22 @@ console.log(squareNumNext());
 
 //3. buat function yang mereturn banyaknya bilangan genap dan ganjil dalam bentuk object (hasil: {genap: 6, ganjil: 5})
 function oddEvenNum() {
-  a = 0;
-  b = 0;
+  let genap = 0;
+  let ganjil = 0;
   for (i = 0; i < lengthTheNumber; i++) {
     if (theNumber[i] % 2 == 0) {
-      a += 1;
-    } else if (theNumber[i] % 2 != 0) {
-      b += 1;
-    } else if (theNumber[i] == 1) {
-      b += 1;
+      genap += 1;
+    } else {
+      ganjil += 1;
     }
   }
+  let output = {
+    genap: genap,
+    ganjil: ganjil,
+  };
+  return output;
 }
-//console.log(oddEvenNum())
+console.log(oddEvenNum());
 
 //4. buat function yang mereturn array dengan urut dari bilangan terkecil ke besar
 const tempTheNumber1 = [...theNumber].sort(function (a, b) {
@@ -70,7 +73,18 @@ console.log(ratioFunction(2, 1), ratioFunction(1, 2), ratioFunction(1, 1));
 // jika myFunction(50, "byte", "bit") akan mereturn angka 400 (gak case sensitive)
 // jika myFunction(10) akan mereturn nilai 10
 // default return string "Error"
-function conversFunction(val1, str2, str3) {}
+function conversFunction(val1, str2, str3) {
+  let output = 0;
+  if (str2 == "bit" && str3 == "byte") {
+    output = val1 / 8;
+  } else if (str2 == "byte" && str3 == "bit") {
+    output = val1 * 8;
+  } else {
+    output = val1;
+  }
+  return output;
+}
+console.log(conversFunction(50, "byte", "bit"));
 
 //3. buat function konversi suhu (celcius, kelvin, fahrenheit) dengan 3 parameters contoh myFunction(val1, str1, str2)
 // val1 = angka suhu awal, str1 = satuan suhu awal, str2 = satuan suhu akhir (mengkonversi suhu str1 ke str2)

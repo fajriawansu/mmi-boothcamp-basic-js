@@ -9,7 +9,6 @@ const film = dummyData.greatMovies;
 // buat callback function contoh myCallback(cbData) akan mereturn film-film yang didirect oleh
 // directorName pada function myFunction(directorName, cbFunction)
 //contoh: jika myFunction("Raditya Dika", myCallback), myCallback() akan memiliki return ["Hangout", "Kambing Jantan", "The Boys"]
-
 const filterByDirector = (dirName, cbFunc) => {
   cbFunc(dirName, [...dummyData.greatMovies]);
 };
@@ -61,7 +60,6 @@ cbTotalFilm(totalFilm);
 // jika yang terbanyak adalah film thriller akan mereturn string "Jangan rekomendasikan film kesukaanmu saja"
 // jika yang terbanyak adalah film fantasy akan mereturn string "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku"
 // jika yang terbanyak adalah selain 4 genre di atas akan mereturn "Hmm, akan aku catat dulu"
-
 const mostGenre = (nextFunction) => {
   let output = {};
   [...film].forEach((val, index) => {
@@ -81,23 +79,23 @@ const mostGenre = (nextFunction) => {
   const sortData = sortFilm.sort((a, b) => {
     return b[1] - a[1];
   });
-  nextFunction(sortData[0][0])
+  nextFunction(sortData[0][0]);
 };
 
 const stringGenre = (terima) => {
-    let kalimat = ""
+  let kalimat = "";
 
-    if (terima == "Action") {
-        kalimat = "Aku suka list rekomendasimmu"
-    }else if (terima == "Drama") {
-        kalimat = "Aku tidak suka list rekomendasimu"
-    }else if (terima == "Thriller") {
-        kalimat = "Jangan rekomendasikan film kesukaanmu saja"
-    }else if (terima == "Fantasy") {
-        kalimat = "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku"
-    } else {
-        kalimat = "Hmm, akan aku catat dulu"
-    }
-    console.log(kalimat)
-}
-mostGenre(stringGenre)
+  if (terima == "Action") {
+    kalimat = "Aku suka list rekomendasimmu";
+  } else if (terima == "Drama") {
+    kalimat = "Aku tidak suka list rekomendasimu";
+  } else if (terima == "Thriller") {
+    kalimat = "Jangan rekomendasikan film kesukaanmu saja";
+  } else if (terima == "Fantasy") {
+    kalimat = "Apakah filmnya bagus? kadang fantasy tidak masuk akal buatku";
+  } else {
+    kalimat = "Hmm, akan aku catat dulu";
+  }
+  console.log(kalimat);
+};
+mostGenre(stringGenre);

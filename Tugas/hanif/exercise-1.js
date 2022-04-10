@@ -275,18 +275,18 @@ console.log(someWargaTrue);
 
 //18. buat array "umurWarga" yang hanya menyimppan umur warga saja (tiap element adalah datatype number)
 const umurWarga = warga.map((value, index) => {
-    return {
-        umur: value.umur
-    }
+  return {
+    umur: value.umur,
+  };
 });
 console.log(umurWarga);
 
 //19. total umur warga dari array 18 dengan metode .reduce()
 const reduceUmurWarga = warga.reduce((total, value, index) => {
-    return total + parseInt(value.umur)
+  return total + parseInt(value.umur);
 }, 0);
 console.log(reduceUmurWarga);
 
 //20. dari array "warga", buat suatu variabel berisi array method yang mereturn object berisi warga bernama "Dimas"
-const indexOfWargaByName = warga.find(val => val.nama === "Dimas");
+const indexOfWargaByName = warga.find((val) => val.nama === "Dimas");
 console.log(indexOfWargaByName);

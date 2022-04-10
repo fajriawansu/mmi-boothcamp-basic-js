@@ -28,13 +28,13 @@ function colorNameFunction(colorName) {
 
   myArray.forEach((val, index) => {
     let tempNameList = val.name;
-    if (tempNameList.includes(colorName)) {
+    if (tempNameList.toLowerCase().includes(colorName.toLowerCase())) {
       output.push(val.name);
     }
   });
   return output;
 }
-console.log(colorNameFunction("Grey"));
+console.log(colorNameFunction("grEy"));
 
 // basic js loop
 // 1. buat function, berisi loop sebanyak 21 kali (dari 0 sampai 20)
@@ -50,11 +50,10 @@ function loopingNo1() {
       ganjil += i;
     }
   }
-  //let output = "sum_all_genap : " + genap + ", " + "sum_all_ganjil : " + ganjil;
   let output = {
-    "sum_all_genap" : genap,
-    "sum_all_ganjil" : ganjil
-  }
+    sum_all_genap: genap,
+    sum_all_ganjil: ganjil,
+  };
   return output;
 }
 console.log(loopingNo1());
@@ -64,27 +63,36 @@ console.log(loopingNo1());
 // tiap-tiap properties merupakan array yang berisi bilangan prima, bilangan genap, bilangan ganjil
 // contoh output: { "genap" : [0,2,4,6, ...], "ganjil": [1,3,5,7], "prima": [2,3,5,7, ...] }
 function loopingNo2() {
-  let ganjil = []
-  let genap = []
-  let prima = []
+  let ganjil = [];
+  let genap = [];
+  let prima = [];
   let output = {
-    "ganjil" : ganjil,
-    "genap" : genap,
-    "prima" : prima
-  }
+    ganjil: ganjil,
+    genap: genap,
+    prima: prima,
+  };
 
-  for (let i = 0; i <=20; i++) {
-    if (i / i == 1 && i % 2 == 1 && i % 3 == 1) {
-      prima.push(i)
-    } else if (i % 2 == 0) {
-      genap.push(i)
+  for (let i = 0; i <= 20; i++) {
+    if (i % 2 != 0) {
+      ganjil.push(i);
     } else {
-      ganjil.push(i)
+      genap.push(i);
+    }
+
+    let flag = 0;
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) {
+        flag = 1;
+        break;
+      }
+    }
+    if (i > 1 && flag == 0) {
+      prima.push(i);
     }
   }
-  return output
+  return output;
 }
-console.log(loopingNo2())
+console.log(loopingNo2());
 
 // 3. buat function, berisi loop sebanyak 21 kali (dari 0 sampai 20)
 // jika number adalah kelipatan 2, dia akan menjadi element array berupa string "lipat2"
@@ -93,36 +101,35 @@ console.log(loopingNo2())
 // jika bukan merupakan kelipatan 2 ataupun 3, dia akan menjadi element array berupa angka itu sendiri
 // output: [0, 1,"lipat2", "lipat3", "lipat2", 5, "lipat2dan3", 7, ... ]
 function loopingNo3() {
-  let output = []
+  let output = [];
 
   for (let i = 0; i <= 20; i++) {
     if (i == 0) {
-      output.push(i)
+      output.push(i);
     } else if (i % 2 == 0 && i % 3 == 0) {
-      output.push("lipat2dan3")
+      output.push("lipat2dan3");
     } else if (i % 3 == 0) {
-      output.push("lipat3")
+      output.push("lipat3");
     } else if (i % 2 == 0) {
-      output.push("lipat2")
+      output.push("lipat2");
     } else {
-      output.push(i)
+      output.push(i);
     }
   }
-  return output
+  return output;
 }
-console.log(loopingNo3())
+console.log(loopingNo3());
 
 //4. buat function, berisi loop dari 1 sampai 99
 // memiliki output (return) hasil penjumlahan bilangan-bilangan yang habis dibagi 5 atau 7
 // notes: angka-angka yang ditotal berarti: 5,7,10,14,15,20,21,25,28,dst
 function loopingNo4() {
-  let output = 0
+  let output = 0;
   for (let i = 0; i <= 99; i++) {
     if (i % 5 == 0 || i % 7 == 0) {
-      output += i
+      output += i;
     }
   }
-  return output
+  return output;
 }
-console.log(loopingNo4())
-
+console.log(loopingNo4());
