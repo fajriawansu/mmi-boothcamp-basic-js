@@ -1,4 +1,4 @@
-const dataResep = require("./../fajriawan/dummyData").resep
+const dataResep = require("../../fajriawan/dummyData").resep
 
 class Recipes {
     constructor(passedInData){
@@ -37,8 +37,8 @@ class Recipes {
         // berdasarkan lama memasak secara ascending
         // output hanya nama, contoh: ["Ikan Bakar", "Nila Goreng", ...]
         let output = [];
-        [...dataResep].forEach((val) => {
-            val.timers.forEach((namaMakanan) => {
+        [...dataResep].forEach((v) => {
+            v.timers.forEach((namaMakanan) => {
                 if(output.hasOwnProperty(namaMakanan)){
                     output[namaMakanan] ++
                 } else {
@@ -49,7 +49,6 @@ class Recipes {
         return console.log(output)
         }
 
-        ///////////////tambahan////////////////
         showNameAndStepsOnly(){
             //2.e RecipesFormula.showNameAndStepsOnly() akan mereturn array passedInData yang tiap-tiap
             // elementnya hanya berisi object {name: "blabla", steps: [ ...blablabla ] }
@@ -78,8 +77,8 @@ class Recipes {
             // yang memiliki nama theName
             let output = [];
             [...dataResep].forEach((val) => {
-                let tempName = v.name;
-                if(tempName.toString().toLowerCase().indexOf(theName.toLowerCase())!=-1){
+                let tempNama = v.name;
+                if(tempNama.toString().toLowerCase().indexOf(theName.toLowerCase())!=-1){
                     output.push(v.name);
                 }
             })
